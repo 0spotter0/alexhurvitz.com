@@ -8,6 +8,14 @@ export function Image({ image }: { image: ImageMetadata }) {
   const [isOverlayVisible, setIsOverlayVisible] = useState<boolean>(false);
 
   useEffect(() => {
+    if (isOverlayVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOverlayVisible]);
+
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOverlayVisible(false);
@@ -46,18 +54,17 @@ export function Image({ image }: { image: ImageMetadata }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative flex flex-col sm:justify-between items-center sm:flex-row gap-10 p-10 w-full h-full"
+              className="relative flex flex-col justify-center items-center sm:flex-row gap-10 ps-10 py-10 pe-10 sm:pe-4 w-full h-full overflow-y-auto"
             >
-              <div className="w-full h-full relative">
-                <img
-                  src={`/testimg/${image.filename}`}
-                  alt={image.title}
-                  draggable={false}
-                  className="w-full h-full object-contain select-none"
-                />
-              </div>
+              <img
+                src={`/testimg/${image.filename}`}
+                alt={image.title}
+                draggable={false}
+                className={`object-contain ${image.orientation === "portrait" && "h-10/12 sm:h-full"} ${image.orientation === "landscape" && "w-full sm:w-8/12"} ${image.orientation === "square" && "w-full"} select-none`}
+                loading="lazy"
+              />
               <div
-                className="flex flex-col text-white gap-2 my-auto w-full sm:w-2/5 ps-5 sm:ps-0 sm:pe-5 cursor-default"
+                className="self-start flex flex-col text-white gap-2 sm:my-auto w-fit cursor-default"
                 onClick={(e) => e.stopPropagation()}
               >
                 <p className="text-lg font-medium">{image.title}</p>
