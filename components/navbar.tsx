@@ -3,9 +3,9 @@ import { AiFillInstagram } from "react-icons/ai";
 
 export async function Navbar({ title }: { title: string }) {
   return (
-    <div className="flex flex-col h-full w-[30rem]">
+    <div className="fixed flex flex-col w-[25rem] h-[calc(100vh-5rem)]">
       <p className="whitespace-pre font-bold text-4xl h-52">{title}</p>
-      <div className="flex flex-col gap-6 underline-offset-2 decoration-1 font-bold">
+      <div className="flex flex-col gap-6 underline-offset-2 decoration-1 font-bold flex-1">
         <Link href="/" className="underline">
           home
         </Link>
@@ -27,7 +27,7 @@ export async function Navbar({ title }: { title: string }) {
         href="https://www.instagram.com/real.alex.photo/"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-bold mt-auto flex items-center gap-2"
+        className="font-bold flex items-center gap-2"
       >
         <AiFillInstagram className="size-6" />
         @real.alex.photo

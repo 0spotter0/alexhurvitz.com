@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} antialiased p-10 h-screen flex gap-8`}>
+      <body className={`${instrumentSans.variable} antialiased p-10 h-screen flex`}>
         {children}
       </body>
     </html>
