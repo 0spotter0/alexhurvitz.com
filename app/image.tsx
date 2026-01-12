@@ -1,80 +1,20 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ImageMetadata } from "./data";
 
-export function Image({ image }: { image: ImageMetadata }) {
-  const [isOverlayVisible, setIsOverlayVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (isOverlayVisible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isOverlayVisible]);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOverlayVisible(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
+export function Image({
+  image,
+  onClick,
+}: {
+  image: ImageMetadata;
+  onClick: () => void;
+}) {
   return (
-    <>
-      <img
-        src={`/testimg/${image.filename}`}
-        alt={image.title}
-        className="w-full h-auto cursor-zoom-in select-none"
-        draggable={false}
-        loading="lazy"
-        onClick={() => setIsOverlayVisible(true)}
-      />
-
-      <AnimatePresence>
-        {isOverlayVisible && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, pointerEvents: "none" }}
-            onClick={() => setIsOverlayVisible(false)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md cursor-zoom-out"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative flex flex-col justify-center items-center sm:flex-row gap-10 ps-10 py-10 pe-10 sm:pe-4 w-full h-full overflow-y-auto"
-            >
-              <img
-                src={`/testimg/${image.filename}`}
-                alt={image.title}
-                draggable={false}
-                className={`object-contain ${image.orientation === "portrait" && "h-10/12 sm:h-full"} ${image.orientation === "landscape" && "w-full sm:w-8/12"} ${image.orientation === "square" && "w-full"} select-none`}
-                loading="lazy"
-              />
-              <div
-                className="self-start flex flex-col text-white gap-2 sm:my-auto w-fit cursor-default"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <p className="text-lg font-medium">{image.title}</p>
-                <p>{image.description}</p>
-                <p className="text-sm italic">{image.monthYear}</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+    <img
+      src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${image.filename}`}
+      alt={image.title}
+      className="w-full h-auto cursor-zoom-in select-none"
+      draggable={false}
+      loading="lazy"
+      onClick={onClick}
+    />
   );
 }
