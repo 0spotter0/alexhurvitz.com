@@ -6,7 +6,7 @@ export interface ImageMetadata {
   orientation: "portrait" | "landscape" | "square";
 }
 
-export const imageGallery: ImageMetadata[] = [
+export const homepageGallery: ImageMetadata[] = [
   {
     filename: "DSC04541.avif",
     title: "Project Milestone Alpha",
@@ -57,6 +57,9 @@ export const imageGallery: ImageMetadata[] = [
     description: "Detailed view of the main electrical and water entry points.",
     orientation: "portrait",
   },
+];
+
+export const landscapesGallery: ImageMetadata[] = [
   {
     filename: "DSC05005-2.avif",
     title: "Roof Line Profile",
@@ -120,6 +123,9 @@ export const imageGallery: ImageMetadata[] = [
     description: "Monitoring pressure gauges for the internal water system.",
     orientation: "portrait",
   },
+];
+
+export const nightGallery: ImageMetadata[] = [
   {
     filename: "DSC05153.avif",
     title: "Drywall Installation - Unit A",
@@ -141,6 +147,9 @@ export const imageGallery: ImageMetadata[] = [
     description: "Suspended ceiling track installation.",
     orientation: "portrait",
   },
+];
+
+export const portraitsGallery: ImageMetadata[] = [
   {
     filename: "DSC05188.avif",
     title: "Flooring Underlayment",
@@ -267,6 +276,9 @@ export const imageGallery: ImageMetadata[] = [
     description: "Testing of the insulated sectional door.",
     orientation: "portrait",
   },
+];
+
+export const wildlifeGallery: ImageMetadata[] = [
   {
     filename: "DSC07020.avif",
     title: "Final Site Clean-up",
@@ -302,4 +314,11 @@ export const imageGallery: ImageMetadata[] = [
     description: "Wide-angle hero shot of the completed project.",
     orientation: "portrait",
   },
-];
+]
+
+export const collectionsPageMap: Record<string, ImageMetadata[]> = {
+  landscapes: landscapesGallery,
+  night: nightGallery,
+  portraits: portraitsGallery,
+  wildlife: wildlifeGallery,
+};

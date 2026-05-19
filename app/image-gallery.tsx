@@ -26,8 +26,12 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
     if (selectedImage) {
       const scrollbarWidth =
         window.innerWidth - document.documentElement.clientWidth;
+
       document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `calc(${scrollbarWidth}px + 2.5rem)`;
+
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `calc(${scrollbarWidth}px + 2.5rem)`;
+      }
     } else {
       setTimeout(() => {
         document.body.style.overflow = "";
@@ -38,7 +42,7 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
 
   return (
     <>
-      <div className="sm:columns-1 md:columns-2 lg:columns-3 h-fit gap-2 space-y-2 pb-8 ms-[25rem]">
+      <div className="columns-2 lg:columns-3 h-fit gap-2 space-y-2 pb-8">
         {images.map((image, index) => (
           <div key={index}>
             <Image image={image} onClick={() => setSelectedImage(image)} />

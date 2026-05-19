@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSans.variable} antialiased p-10 h-screen flex`}
+        className={`${instrumentSans.variable} antialiased p-6 pt-28 sm:p-10 h-screen flex flex-col sm:flex-row`}
       >
         {children}
       </body>
