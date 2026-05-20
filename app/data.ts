@@ -1,8 +1,8 @@
 export interface ImageMetadata {
   filename: string;
-  title: string;
-  monthYear: string;
-  description: string;
+  title?: string;
+  monthYear?: string;
+  description?: string;
   orientation: "portrait" | "landscape" | "square";
 }
 
@@ -135,9 +135,6 @@ export const nightGallery: ImageMetadata[] = [
   },
   {
     filename: "DSC05154.avif",
-    title: "Joint Taping Process",
-    monthYear: "January 2026",
-    description: "Finishing work on the interior wall seams.",
     orientation: "portrait",
   },
   {
@@ -295,9 +292,6 @@ export const wildlifeGallery: ImageMetadata[] = [
   },
   {
     filename: "DSC07126.avif",
-    title: "Landscaping - Planting",
-    monthYear: "January 2026",
-    description: "Installation of native shrubs and trees.",
     orientation: "landscape",
   },
   {
