@@ -10,6 +10,14 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
   const [selectedImage, setSelectedImage] = useState<ImageMetadata | null>(
     null
   );
+  const [columnCount, setColumnCount] = useState(2);
+
+  useEffect(() => {
+    const update = () => setColumnCount(window.innerWidth >= 1024 ? 3 : 2);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -40,12 +48,22 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
     }
   }, [selectedImage]);
 
+  const columns = Array.from({ length: columnCount }, (_, col) =>
+    images.filter((_, i) => i % columnCount === col)
+  );
+
   return (
     <>
-      <div className="columns-2 lg:columns-3 h-fit gap-2 space-y-2 pb-8">
-        {images.map((image, index) => (
-          <div key={index}>
-            <Image image={image} onClick={() => setSelectedImage(image)} />
+      <div className="flex gap-2 pb-8 items-start">
+        {columns.map((colImages, col) => (
+          <div key={col} className="flex flex-col gap-2 flex-1">
+            {colImages.map((image, i) => (
+              <Image
+                key={i}
+                image={image}
+                onClick={() => setSelectedImage(image)}
+              />
+            ))}
           </div>
         ))}
       </div>

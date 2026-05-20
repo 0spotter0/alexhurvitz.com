@@ -38,7 +38,7 @@ export function Navbar({ title }: { title: string }) {
 
   return (
     <>
-      <div className="hidden sm:block">
+      <div className="hidden sm:block sticky top-10 self-start">
         <NavbarContent title={title} />
       </div>
       <div className="absolute inset-0 h-fit sm:hidden">
