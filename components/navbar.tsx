@@ -146,7 +146,7 @@ function NavbarContent({
             key={index}
             href={`/collections/${collection}`}
             onClick={closeBurger}
-            className={`ms-10${pathname === `/collections/${collection}` ? " underline" : ""}`}
+            className={`ms-10 ${pathname === `/collections/${collection}` ? " underline" : ""}`}
           >
             {collection}
           </Link>
