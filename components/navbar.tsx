@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AiFillInstagram } from "react-icons/ai";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { collectionsPageMap } from "@/app/data";
@@ -123,6 +124,8 @@ function NavbarContent({
   title?: string;
   closeBurger?: () => void;
 }) {
+  const pathname = usePathname();
+
   return (
     <div className="flex flex-col w-[15rem] md:w-[25rem] h-[calc(100vh-5rem)]">
       {title && (
@@ -130,11 +133,11 @@ function NavbarContent({
           {title}
         </p>
       )}
-      <div className="flex flex-col gap-6 underline-offset-2 decoration-1 font-bold flex-1">
-        <Link href="/" className="underline">
+      <div className="flex flex-col gap-6 underline-offset-2 decoration-1 flex-1">
+        <Link href="/" className={pathname === "/" ? "underline" : ""}>
           home
         </Link>
-        <Link href="/about" className="underline">
+        <Link href="/about" className={pathname === "/about" ? "underline" : ""}>
           about me
         </Link>
         <p>collections</p>
@@ -143,11 +146,14 @@ function NavbarContent({
             key={index}
             href={`/collections/${collection}`}
             onClick={closeBurger}
-            className="ms-10 underline"
+            className={`ms-10${pathname === `/collections/${collection}` ? " underline" : ""}`}
           >
             {collection}
           </Link>
         ))}
+        <Link href="/contact" className={pathname === "/contact" ? "underline" : ""} onClick={closeBurger}>
+          contact
+        </Link>
       </div>
       <Link
         href="https://www.instagram.com/real.alex.photo/"
