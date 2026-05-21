@@ -10,14 +10,9 @@ export default function AboutPage() {
             src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/alex.avif`}
             alt="Picture of Alex"
             className="w-1/2"
-          />
+          />  
           <p className="w-full">
-            commodo dolore irure nulla exercitation voluptate non voluptate
-            velit nisi commodo velit nostrud ad labore magna voluptate voluptate
-            amet ipsum ea commodo incididunt enim sunt excepteur eu eiusmod
-            magna qui fugiat consectetur magna aute reprehenderit anim magna
-            fugiat sunt reprehenderit in reprehenderit in enim anim non eiusmod
-            in sit ea
+            hello world
           </p>
         </div>
       </div>
