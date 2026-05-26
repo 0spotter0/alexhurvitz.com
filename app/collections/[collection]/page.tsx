@@ -5,6 +5,10 @@ import { collectionsPageMap, ImageMetadata } from "@/app/data";
 import { ImageGallery } from "@/app/image-gallery";
 import { notFound } from "next/navigation";
 
+export function generateStaticParams() {
+  return Object.keys(collectionsPageMap).map((collection) => ({ collection }));
+}
+
 export async function generateMetadata({
   params,
 }: {
