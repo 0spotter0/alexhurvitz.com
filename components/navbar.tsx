@@ -42,7 +42,7 @@ export function Navbar({ title }: { title: string }) {
       <div className="hidden sm:block sticky top-10 self-start">
         <NavbarContent title={title} />
       </div>
-      <div className="absolute inset-0 h-fit sm:hidden">
+      <div className="absolute inset-0 h-fit sm:hidden z-10">
         <div>
           <div className="p-6 sm:p-10 bg-white mt-0 w-full flex justify-between items-center">
             <p className="text-2xl font-bold">{title}</p>
