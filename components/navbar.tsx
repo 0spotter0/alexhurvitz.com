@@ -168,7 +168,7 @@ function NavbarContent({
           <AiFillInstagram className="size-6" />
           @real.alex.photo
         </Link>
-        <p className="text-xs opacity-60">Copyright © 2025 by [Alex Hurvitz]</p>
+        <p className="text-xs opacity-60">Copyright © 2026 by [Alex Hurvitz]</p>
       </div>
     </div>
   );
