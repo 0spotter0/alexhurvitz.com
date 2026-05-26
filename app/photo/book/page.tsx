@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/app/photo/navbar";
 import { Booker } from "./booker";
 
 export const metadata: Metadata = { title: "Book" };

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/app/photo/navbar";
 import { collectionsPageMap } from "@/app/photo/data";
 
 export const metadata: Metadata = { title: "Collections" };

@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/app/photo/navbar";
 import { homepageGallery } from "./data";
 import { ImageGallery } from "./image-gallery";
 

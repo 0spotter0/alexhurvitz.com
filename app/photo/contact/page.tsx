@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/app/photo/navbar";
 import { TallyEmbed } from "./tally-embed";
 
 export const metadata: Metadata = { title: "Contact" };

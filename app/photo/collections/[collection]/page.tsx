@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/app/photo/navbar";
 
 import { collectionsPageMap, ImageMetadata } from "@/app/photo/data";
 import { ImageGallery } from "@/app/photo/image-gallery";
