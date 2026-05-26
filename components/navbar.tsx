@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { collectionsPageMap } from "@/app/data";
+import { collectionsPageMap } from "@/app/photo/data";
 
 export function Navbar({ title }: { title: string }) {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
@@ -134,27 +134,27 @@ function NavbarContent({
         </p>
       )}
       <div className="flex flex-col gap-6 underline-offset-2 decoration-1 flex-1">
-        <Link href="/" className={pathname === "/" ? "underline" : ""}>
+        <Link href="/photo" className={pathname === "/photo" ? "underline" : ""}>
           home
         </Link>
-        <Link href="/about" className={pathname === "/about" ? "underline" : ""}>
+        <Link href="/photo/about" className={pathname === "/photo/about" ? "underline" : ""}>
           about me
         </Link>
-        <Link href="/collections" className={pathname === "/collections" ? "underline" : ""} onClick={closeBurger}>collections</Link>
+        <Link href="/photo/collections" className={pathname === "/photo/collections" ? "underline" : ""} onClick={closeBurger}>collections</Link>
         {Object.keys(collectionsPageMap).map((collection, index) => (
           <Link
             key={index}
-            href={`/collections/${collection}`}
+            href={`/photo/collections/${collection}`}
             onClick={closeBurger}
-            className={`ms-10 ${pathname === `/collections/${collection}` ? " underline" : ""}`}
+            className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
           >
             {collection}
           </Link>
         ))}
-        <Link href="/contact" className={pathname === "/contact" ? "underline" : ""} onClick={closeBurger}>
+        <Link href="/photo/contact" className={pathname === "/photo/contact" ? "underline" : ""} onClick={closeBurger}>
           contact
         </Link>
-        <Link href="/book" className={pathname === "/book" ? "underline" : ""} onClick={closeBurger}>
+        <Link href="/photo/book" className={pathname === "/photo/book" ? "underline" : ""} onClick={closeBurger}>
           book a session
         </Link>
       </div>

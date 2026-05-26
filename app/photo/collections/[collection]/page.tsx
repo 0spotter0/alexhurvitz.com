@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 
-import { collectionsPageMap, ImageMetadata } from "@/app/data";
-import { ImageGallery } from "@/app/image-gallery";
+import { collectionsPageMap, ImageMetadata } from "@/app/photo/data";
+import { ImageGallery } from "@/app/photo/image-gallery";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
