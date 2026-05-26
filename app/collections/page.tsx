@@ -11,23 +11,32 @@ export default function CollectionsPage() {
   return (
     <>
       <Navbar title={"COLLECTIONS"} />
-      <div className="mx-auto w-fit justify-items-center sm:mt-20 h-fit grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-16 pb-8">
+      <div className="flex-1 my-auto flex flex-col md:flex-row gap-4 md:h-[60vh] py-3">
         {collections.map(([slug, images]) => {
-          const cover = images[0];
+          const cover = images[1];
           return (
             <Link
               key={slug}
               href={`/collections/${slug}`}
-              className="group flex flex-col gap-3 transition-transform hover:scale-102"
+              className="group w-full h-36 md:h-auto md:flex-1 hover:scale-103 transition-transform duration-300"
             >
-              <div className="w-60 aspect-square overflow-hidden outline-0 outline-transparent group-hover:outline-black/60 outline-offset-4 group-hover:shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.3)] transition-shadow">
+              <div className="relative h-full border border-white/30 flex flex-col justify-end items-start md:items-end p-3 overflow-hidden group-hover:border-white/60 transition-colors duration-300">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${cover.filename}_thumb.webp`}
                   alt={slug}
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
+                <span className="relative block md:hidden text-white/80 text-2xl uppercase tracking-[0.3em]">
+                  {slug}
+                </span>
+                <span
+                  className="relative hidden md:block text-white text-2xl uppercase tracking-[0.3em]"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  {slug}
+                </span>
               </div>
-              <span className="text-sm uppercase tracking-widest underline-offset-2 decoration-1 [@media(hover:hover)]:group-hover:underline">{slug}</span>
             </Link>
           );
         })}
