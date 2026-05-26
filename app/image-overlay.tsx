@@ -25,7 +25,7 @@ export function ImageOverlay({
       >
         <img
           src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${image.filename}_full.webp`}
-          alt={image.title}
+          alt={image.filename}
           draggable={false}
           className={`object-contain ${
             image.orientation === "portrait" && "h-10/12 sm:h-full"
@@ -38,9 +38,10 @@ export function ImageOverlay({
           className="self-start flex flex-col text-white gap-2 sm:my-auto w-fit cursor-default"
           onClick={(e) => e.stopPropagation()}
         >
-          <p className="text-lg font-medium">{image.title}</p>
-          <p>{image.description}</p>
-          <p className="text-sm italic">{image.monthYear}</p>
+          {image.shutter && <p className="font-semibold text-sm">{image.shutter}</p>}
+          {image.aperture && <p className="font-semibold text-sm">{image.aperture}</p>}
+          {image.iso && <p className="font-semibold text-sm">ISO {image.iso}</p>}
+          <p className="mt-4 text-sm italic">{image.date}</p>
         </div>
       </motion.div>
     </motion.div>

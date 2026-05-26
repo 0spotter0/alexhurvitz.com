@@ -8,7 +8,10 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Hurvitz Photography",
+  title: {
+    default: "Alex Hurvitz Photography",
+    template: "%s | Alex Hurvitz Photography",
+  },
 };
 
 export default function RootLayout({

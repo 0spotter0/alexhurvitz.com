@@ -22,7 +22,7 @@ export function Image({
     <motion.img
       ref={imgRef}
       src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${image.filename}_thumb.webp`}
-      alt={image.title}
+      alt={image.filename}
       className="w-full h-auto cursor-zoom-in select-none"
       draggable={false}
       loading="lazy"

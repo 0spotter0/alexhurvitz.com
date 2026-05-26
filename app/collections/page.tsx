@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { collectionsPageMap } from "@/app/data";
+
+export const metadata: Metadata = { title: "Collections" };
 
 export default function CollectionsPage() {
   const collections = Object.entries(collectionsPageMap);
