@@ -11,16 +11,16 @@ export default function CollectionsPage() {
   return (
     <>
       <Navbar title={"COLLECTIONS"} />
-      <div className="mx-auto sm:mx-0 sm:mt-20 h-fit grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-16 pb-8">
+      <div className="mx-auto w-fit justify-items-center sm:mt-20 h-fit grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-16 pb-8">
         {collections.map(([slug, images]) => {
           const cover = images[0];
           return (
             <Link
               key={slug}
               href={`/collections/${slug}`}
-              className="group flex flex-col gap-3"
+              className="group flex flex-col gap-3 transition-transform hover:scale-102"
             >
-              <div className="w-60 aspect-square overflow-hidden bg-neutral-100">
+              <div className="w-60 aspect-square overflow-hidden outline-0 outline-transparent group-hover:outline-black/60 outline-offset-4 group-hover:shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.3)] transition-shadow">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${cover.filename}_thumb.webp`}
                   alt={slug}

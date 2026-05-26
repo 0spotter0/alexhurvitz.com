@@ -127,7 +127,7 @@ function NavbarContent({
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col w-[15rem] md:w-[25rem] h-[calc(100vh-5rem)]">
+    <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
       {title && (
         <p className="whitespace-pre font-bold text-2xl md:text-4xl h-52">
           {title}
@@ -153,6 +153,9 @@ function NavbarContent({
         ))}
         <Link href="/contact" className={pathname === "/contact" ? "underline" : ""} onClick={closeBurger}>
           contact
+        </Link>
+        <Link href="/book" className={pathname === "/book" ? "underline" : ""} onClick={closeBurger}>
+          book a session
         </Link>
       </div>
       <div className="flex flex-col gap-4">
