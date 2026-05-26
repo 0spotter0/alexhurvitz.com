@@ -10,7 +10,12 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
   const [selectedImage, setSelectedImage] = useState<ImageMetadata | null>(
     null
   );
+  const [shuffledImages, setShuffledImages] = useState(images);
   const [columnCount, setColumnCount] = useState(2);
+
+  useEffect(() => {
+    setShuffledImages([...images].sort(() => Math.random() - 0.5));
+  }, []);
 
   useEffect(() => {
     const update = () => setColumnCount(window.innerWidth >= 1024 ? 3 : 2);
@@ -49,7 +54,7 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
   }, [selectedImage]);
 
   const columns = Array.from({ length: columnCount }, (_, col) =>
-    images.filter((_, i) => i % columnCount === col)
+    shuffledImages.filter((_, i) => i % columnCount === col)
   );
 
   return (

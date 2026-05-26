@@ -21,10 +21,10 @@ export default async function CollectionPage({
 }) {
   const { collection } = await params;
 
-  const imageCollection: ImageMetadata[] = collectionsPageMap[collection]
+  const imageCollection: ImageMetadata[] = collectionsPageMap[collection];
 
   if (!imageCollection) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -34,3 +34,4 @@ export default async function CollectionPage({
     </>
   );
 }
+
