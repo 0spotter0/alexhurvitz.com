@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MdExposure } from "react-icons/md";
+import { TbBrightnessUp } from "react-icons/tb";
 import { MdOutlineTimer } from "react-icons/md";
 import { IoMdAperture } from "react-icons/io";
 import { ImageMetadata } from "./data";
@@ -55,7 +55,7 @@ export function ImageOverlay({
           )}
           {image.iso && (
             <p className="font-semibold flex items-center gap-2">
-              <MdExposure className="opacity-60 text-xl shrink-0" />
+              <TbBrightnessUp className="opacity-60 text-xl shrink-0" />
               {image.iso}
             </p>
           )}
