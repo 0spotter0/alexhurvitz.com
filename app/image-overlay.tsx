@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { MdExposure } from "react-icons/md";
+import { MdOutlineTimer } from "react-icons/md";
+import { IoMdAperture } from "react-icons/io";
 import { ImageMetadata } from "./data";
 
 export function ImageOverlay({
@@ -38,10 +41,25 @@ export function ImageOverlay({
           className="self-start flex flex-col text-white gap-2 sm:my-auto w-fit cursor-default"
           onClick={(e) => e.stopPropagation()}
         >
-          {image.shutter && <p className="font-semibold text-sm">{image.shutter}</p>}
-          {image.aperture && <p className="font-semibold text-sm">{image.aperture}</p>}
-          {image.iso && <p className="font-semibold text-sm">ISO {image.iso}</p>}
-          <p className="mt-4 text-sm italic">{image.date}</p>
+          {image.shutter && (
+            <p className="font-semibold flex items-center gap-2">
+              <MdOutlineTimer className="opacity-60 text-xl shrink-0" />
+              {image.shutter}
+            </p>
+          )}
+          {image.aperture && (
+            <p className="font-semibold flex items-center gap-2">
+              <IoMdAperture className="opacity-60 text-xl shrink-0" />
+              {image.aperture}
+            </p>
+          )}
+          {image.iso && (
+            <p className="font-semibold flex items-center gap-2">
+              <MdExposure className="opacity-60 text-xl shrink-0" />
+              {image.iso}
+            </p>
+          )}
+          <p className="mt-14 text-sm italic">{image.date}</p>
         </div>
       </motion.div>
     </motion.div>

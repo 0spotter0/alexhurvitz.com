@@ -155,15 +155,18 @@ function NavbarContent({
           contact
         </Link>
       </div>
-      <Link
-        href="https://www.instagram.com/real.alex.photo/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-bold flex items-center gap-2"
-      >
-        <AiFillInstagram className="size-6" />
-        @real.alex.photo
-      </Link>
+      <div className="flex flex-col gap-4">
+        <Link
+          href="https://www.instagram.com/real.alex.photo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold flex items-center gap-2"
+        >
+          <AiFillInstagram className="size-6" />
+          @real.alex.photo
+        </Link>
+        <p className="text-xs opacity-30">Copyright © 2025 by [Alex Hurvitz]</p>
+      </div>
     </div>
   );
 }
