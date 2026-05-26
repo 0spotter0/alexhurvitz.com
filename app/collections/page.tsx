@@ -10,8 +10,8 @@ export default function CollectionsPage() {
 
   return (
     <>
-      <Navbar title="COLLECTIONS" />
-      <div className="my-auto mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-16 pb-8">
+      <Navbar title={"COLLECTIONS"} />
+      <div className="mx-auto sm:mx-0 sm:mt-20 h-fit grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-16 pb-8">
         {collections.map(([slug, images]) => {
           const cover = images[0];
           return (
@@ -20,7 +20,7 @@ export default function CollectionsPage() {
               href={`/collections/${slug}`}
               className="group flex flex-col gap-3"
             >
-              <div className="relative w-60 aspect-square overflow-hidden bg-neutral-100">
+              <div className="w-60 aspect-square overflow-hidden bg-neutral-100">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${cover.filename}_thumb.webp`}
                   alt={slug}
