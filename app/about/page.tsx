@@ -8,13 +8,13 @@ export default function AboutPage() {
     <>
       <Navbar title={"ABOUT ME"} />
       <div className="w-full h-full items-center justify-center">
-        <div className="flex flex-col items-center gap-8 w-full sm:mt-20">
+        <div className="flex flex-col items-center gap-8 w-full">
           <img
             src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/alex.webp`}
             alt="Picture of Alex"
-            className="w-3/4"
+            className="w-full sm:w-3/4"
           />
-          <div className="space-y-4 w-[55ch] pb-10">
+          <div className="space-y-4 w-full sm:w-3/4 pb-10 text-justify">
             <p>
               Alex Hurvitz is a Los Angeles–based self-taught photographer who’s
               been behind the camera for nearly two years, capturing everything

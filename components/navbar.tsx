@@ -129,7 +129,7 @@ function NavbarContent({
   return (
     <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
       {title && (
-        <p className="whitespace-pre font-bold text-2xl md:text-4xl h-52">
+        <p className="whitespace-pre font-semibold text-2xl md:text-4xl h-52">
           {title}
         </p>
       )}

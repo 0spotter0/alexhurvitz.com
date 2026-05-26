@@ -8,8 +8,8 @@ export default function ContactPage() {
   return (
     <>
       <Navbar title={"CONTACT"} />
-      <div className="w-full h-full my-auto">
-        <div className="flex flex-col gap-8 w-full max-w-[60ch]">
+      <div className="md:mr-30 w-full h-full my-auto">
+        <div className="gap-8 mx-auto max-w-[60ch]">
           <TallyEmbed />
         </div>
       </div>
