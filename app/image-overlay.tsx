@@ -24,7 +24,7 @@ export function ImageOverlay({
         className="relative flex flex-col justify-center items-center sm:flex-row gap-10 ps-10 py-10 pe-10 sm:pe-4 w-full h-full overflow-y-auto"
       >
         <img
-          src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${image.filename}`}
+          src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/${image.filename}_full.webp`}
           alt={image.title}
           draggable={false}
           className={`object-contain ${

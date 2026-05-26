@@ -140,7 +140,7 @@ function NavbarContent({
         <Link href="/about" className={pathname === "/about" ? "underline" : ""}>
           about me
         </Link>
-        <p>collections</p>
+        <Link href="/collections" className={pathname === "/collections" ? "underline" : ""} onClick={closeBurger}>collections</Link>
         {Object.keys(collectionsPageMap).map((collection, index) => (
           <Link
             key={index}
