@@ -25,14 +25,14 @@ export function Navbar({ title }: { title: string }) {
 
   useEffect(() => {
     if (isBurgerMenuOpen) {
-      // const scrollbarWidth =
-      //   window.innerWidth - document.documentElement.clientWidth;
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
-      // document.body.style.paddingRight = `calc(${scrollbarWidth}px + 2.5rem)`;
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     } else {
       setTimeout(() => {
         document.body.style.overflow = "";
-        // document.body.style.paddingRight = "";
+        document.body.style.paddingRight = "";
       }, 450);
     }
   }, [isBurgerMenuOpen]);

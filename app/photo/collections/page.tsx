@@ -17,7 +17,7 @@ export default function CollectionsPage() {
           return (
             <Link
               key={slug}
-              href={`/collections/${slug}`}
+              href={`/photo/collections/${slug}`}
               className="group w-full h-36 md:h-auto md:flex-1 hover:scale-103 transition-transform duration-300"
             >
               <div className="relative h-full border border-white/30 flex flex-col justify-end items-start md:items-end p-3 overflow-hidden group-hover:border-white/60 transition-colors duration-300">

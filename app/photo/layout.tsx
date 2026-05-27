@@ -1,11 +1,4 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
-import "@/app/globals.css";
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -14,18 +7,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function PhotoLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${instrumentSans.variable} antialiased p-6 pt-28 sm:p-10 min-h-screen flex flex-col sm:flex-row`}
-      >
-        {children}
-      </body>
-    </html>
+    <div className="p-6 pt-28 sm:p-10 min-h-screen flex flex-col sm:flex-row">
+      {children}
+    </div>
   );
 }

@@ -43,7 +43,7 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
       document.body.style.overflow = "hidden";
 
       if (scrollbarWidth > 0) {
-        document.body.style.paddingRight = `calc(${scrollbarWidth}px + 2.5rem)`;
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
     } else {
       setTimeout(() => {
