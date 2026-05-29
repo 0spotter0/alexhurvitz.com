@@ -15,8 +15,9 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/music" className="text-xl font-light tracking-tight text-gray-800 hover:text-gray-500 transition-colors duration-300">
-          Alex Hurvitz
+        <Link href="/music" className="flex flex-col leading-tight hover:text-gray-500 transition-colors duration-300 group">
+          <span className="text-xl font-light tracking-tight text-gray-800 group-hover:text-gray-500 transition-colors duration-300">Alex Hurvitz</span>
+          <span className="text-xs text-gray-400 tracking-wide">Jazz Pianist &amp; Composer</span>
         </Link>
         <div className="flex items-center gap-8 text-xs tracking-widest text-gray-400">
           {links.map(({ label, href }) => (
