@@ -36,7 +36,7 @@ export default function AboutPage() {
         </div>
         <div className="w-full md:w-80 shrink-0">
           <Image
-            src="/temp-local-images-music/022.webp"
+            src="/temp-local-images-music/aboutme-alex.webp"
             alt="Alex Hurvitz at the piano"
             width={480}
             height={640}
