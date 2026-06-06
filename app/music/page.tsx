@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import NextImage from "next/image";
 import { SiApplemusic, SiSpotify, SiAmazonmusic, SiTidal } from "react-icons/si";
 import { Navbar } from "@/app/music/navbar";
 
 export const metadata: Metadata = { title: "Music" };
 
 const tracks = [
-  "Track 1",
-  "Track 2",
-  "Track 3",
-  "Track 4",
-  "Track 5",
-  "Track 6",
-  "Track 7",
-  "Track 8",
+  "Glenn Zaleski Trio Like Piece (Hopefully) / Timeless Thoughts ",
+  "Dandelion Dream",
+  "Where the Wind Leads",
+  "Forgetting Again",
+  "Endless Meadow",
+  "Your Eyes",
+  "Picnic Friend",
+  "See You Again Tomorrow",
 ];
 
 const streamingLinks = [
@@ -27,20 +28,23 @@ export default function MusicPage() {
     <>
       <Navbar />
       <main className="max-w-4xl mx-auto w-full px-6 py-24">
-        <h1 className="text-5xl sm:text-6xl font-light tracking-tight text-gray-800 mb-16">
-          album out now
+        <h1 className="text-5xl sm:text-5xl font-light tracking-tight text-gray-800 mb-16">
+          [AlbumName] out now
         </h1>
 
         {/* Album section */}
         <div className="flex flex-col sm:flex-row gap-10">
           {/* Left: album art + streaming links */}
           <div className="flex flex-col gap-5 flex-shrink-0">
-            {/* Square album art placeholder */}
-            <div className="w-64 h-64 bg-gray-100 flex items-center justify-center">
-              <svg className="w-12 h-12 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
+            {/* Album art */}
+            <div className="w-64 h-64 relative overflow-hidden">
+              <NextImage
+                src="/temp-local-images-music/tmp-album-cover.jpg"
+                alt="Album cover"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
             {/* Album title + year */}

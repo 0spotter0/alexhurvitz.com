@@ -13,6 +13,6 @@ export default function ContactPage() {
           <TallyEmbed />
         </div>
       </div>
-</>
+    </>
   );
 }
