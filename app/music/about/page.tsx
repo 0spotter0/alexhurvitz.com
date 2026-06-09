@@ -17,13 +17,11 @@ export default function AboutPage() {
         </h1>
         <div className="space-y-4 text-gray-600 leading-relaxed">
           <div className="mx-auto w-2/3 mb-6 md:float-right md:mx-0 md:ml-16 md:mb-6 md:w-80">
-            <Image
-              src="/temp-local-images-music/aboutme-alex.webp"
-              alt="Alex Hurvitz at the piano"
-              width={480}
-              height={640}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/aboutme-alex.webp`}
+              alt="Album cover"
               className="w-full object-cover"
-              priority
             />
           </div>
           <p>
