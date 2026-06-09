@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import NextImage from "next/image";
+import Link from "next/link";
+import Image from "next/image";
 import {
   SiApplemusic,
   SiSpotify,
   SiAmazonmusic,
   SiTidal,
 } from "react-icons/si";
+import { AiFillInstagram } from "react-icons/ai";
 import { Navbar } from "@/app/music/navbar";
 
 export const metadata: Metadata = { title: "Music" };
@@ -15,22 +17,30 @@ export const metadata: Metadata = { title: "Music" };
 const streamingLinks = [
   {
     label: "Apple Music",
-    icon: <SiApplemusic className="w-7 h-7 text-gray-400 group-hover:text-[#FF4E6B] transition-colors duration-400" />,
+    icon: (
+      <SiApplemusic className="w-7 h-7 text-gray-400 group-hover:text-[#FF4E6B] transition-colors duration-400" />
+    ),
     href: "https://music.apple.com",
   },
   {
     label: "Spotify",
-    icon: <SiSpotify className="w-7 h-7 text-gray-400 group-hover:text-[#1DB954] transition-colors duration-400" />,
+    icon: (
+      <SiSpotify className="w-7 h-7 text-gray-400 group-hover:text-[#1DB954] transition-colors duration-400" />
+    ),
     href: "https://spotify.com",
   },
   {
     label: "Amazon Music",
-    icon: <SiAmazonmusic className="w-7 h-7 text-gray-400 group-hover:text-[#0077C1] transition-colors duration-400" />,
+    icon: (
+      <SiAmazonmusic className="w-7 h-7 text-gray-400 group-hover:text-[#0077C1] transition-colors duration-400" />
+    ),
     href: "https://music.amazon.com",
   },
   {
     label: "Tidal",
-    icon: <SiTidal className="w-7 h-7 text-gray-400 group-hover:text-black transition-colors duration-400" />,
+    icon: (
+      <SiTidal className="w-7 h-7 text-gray-400 group-hover:text-black transition-colors duration-400" />
+    ),
     href: "https://tidal.com",
   },
 ];
@@ -39,7 +49,17 @@ export default function MusicPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto w-full px-6 py-10 sm:py-24 flex flex-col items-center">
+      <main className="max-w-4xl mx-auto w-full px-6 flex flex-col items-center">
+        <Link
+          href="https://www.instagram.com/alex_hurvitz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 mb-10"
+        >
+          <AiFillInstagram className="size-6" />
+          @alex_hurvitz
+        </Link>
+
         <h1 className="text-3xl sm:text-4xl font-light text-gray-800 mb-10">
           Value (single) out now!
         </h1>
@@ -50,8 +70,8 @@ export default function MusicPage() {
           <div className="flex flex-col gap-8 flex-shrink-0">
             {/* Album art */}
             <div className="w-64 h-64 relative overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-101 duration-300 ease-in-out">
-              <NextImage
-                src="/temp-local-images-music/tmp-album-cover.webp"
+              <Image
+                src="/temp-local-images-music/value-cover.webp"
                 alt="Album cover"
                 fill
                 className="object-cover"

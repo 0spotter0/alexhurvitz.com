@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Navbar } from "@/app/music/navbar";
 
 export const metadata: Metadata = { title: "Media" };
@@ -17,25 +16,25 @@ const videos = [
 ];
 
 const photos = [
-  { src: "/temp-local-images-music/Untitled2.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/APD_20250212_AlexHurvitz01.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/Untitled1.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/IMG_3042.webp", width: 2048, height: 1365, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/023.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/alexhurvitz2.webp", width: 1638, height: 2048, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/APD_20250212_AlexHurvitz04.webp", width: 1920, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/041.webp", width: 2560, height: 2048, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/024.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/IMG_3045.webp", width: 1638, height: 2048, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/aboutme-alex.webp", width: 1365, height: 2048, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/022.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
+  { src: "/music/Untitled2.webp", alt: "Alex Hurvitz" },
+  { src: "/music/APD_20250212_AlexHurvitz01.webp", alt: "Alex Hurvitz" },
+  { src: "/music/Untitled1.webp", alt: "Alex Hurvitz" },
+  { src: "/music/IMG_3042.webp", alt: "Alex Hurvitz" },
+  { src: "/music/023.webp", alt: "Alex Hurvitz" },
+  { src: "/music/alexhurvitz2.webp", alt: "Alex Hurvitz" },
+  { src: "/music/APD_20250212_AlexHurvitz04.webp", alt: "Alex Hurvitz" },
+  { src: "/music/041.webp", alt: "Alex Hurvitz" },
+  { src: "/music/024.webp", alt: "Alex Hurvitz" },
+  { src: "/music/IMG_3045.webp", alt: "Alex Hurvitz" },
+  { src: "/music/aboutme-alex.webp", alt: "Alex Hurvitz" },
+  { src: "/music/022.webp", alt: "Alex Hurvitz" },
 ];
 
 export default function MediaPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-5xl mx-auto w-full px-6 py-10 sm:py-24">
+      <main className="max-w-5xl mx-auto w-full px-6">
         <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">
           Media
         </p>
@@ -62,11 +61,10 @@ export default function MediaPage() {
         <div className="columns-2 md:columns-3 gap-4">
           {photos.map((photo) => (
             <div key={photo.src} className="break-inside-avoid mb-4">
-              <Image
-                src={photo.src}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${process.env.NEXT_PUBLIC_BUNNY_URL}${photo.src}`}
                 alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
                 className="w-full h-auto"
               />
             </div>
