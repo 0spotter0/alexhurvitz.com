@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto w-full px-6 py-24">
+      <main className="max-w-4xl mx-auto w-full px-6 py-10 sm:py-24">
         <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">
           About
         </p>
