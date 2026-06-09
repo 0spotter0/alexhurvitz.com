@@ -70,12 +70,11 @@ export default function MusicPage() {
           <div className="flex flex-col gap-8 flex-shrink-0">
             {/* Album art */}
             <div className="w-64 h-64 relative overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-101 duration-300 ease-in-out">
-              <Image
-                src="/temp-local-images-music/value-cover.webp"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`}
                 alt="Album cover"
-                fill
                 className="object-cover"
-                priority
               />
             </div>
 
