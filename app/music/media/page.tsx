@@ -17,9 +17,9 @@ const videos = [
 ];
 
 const photos = [
-  { src: "/temp-local-images-music/Untitled2.jpg", width: 1707, height: 2560, alt: "Alex Hurvitz" },
+  { src: "/temp-local-images-music/Untitled2.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
   { src: "/temp-local-images-music/APD_20250212_AlexHurvitz01.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
-  { src: "/temp-local-images-music/Untitled1.jpg", width: 1707, height: 2560, alt: "Alex Hurvitz" },
+  { src: "/temp-local-images-music/Untitled1.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
   { src: "/temp-local-images-music/IMG_3042.webp", width: 2048, height: 1365, alt: "Alex Hurvitz" },
   { src: "/temp-local-images-music/023.webp", width: 1707, height: 2560, alt: "Alex Hurvitz" },
   { src: "/temp-local-images-music/alexhurvitz2.webp", width: 1638, height: 2048, alt: "Alex Hurvitz" },
