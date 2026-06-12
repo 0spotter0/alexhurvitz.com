@@ -24,10 +24,7 @@ const photos = [
   { src: "/music/alexhurvitz2.webp", alt: "Alex Hurvitz" },
   { src: "/music/APD_20250212_AlexHurvitz04.webp", alt: "Alex Hurvitz" },
   { src: "/music/041.webp", alt: "Alex Hurvitz" },
-  { src: "/music/024.webp", alt: "Alex Hurvitz" },
   { src: "/music/IMG_3045.webp", alt: "Alex Hurvitz" },
-  { src: "/music/aboutme-alex.webp", alt: "Alex Hurvitz" },
-  { src: "/music/022.webp", alt: "Alex Hurvitz" },
 ];
 
 export default function MediaPage() {
