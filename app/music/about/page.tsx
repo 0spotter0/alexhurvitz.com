@@ -44,10 +44,10 @@ export default function AboutPage() {
             artistry through performance and study.
           </p>
           <p>
-            Alex was a fellow in the LA Philharmonic&apos;s Nancy and Barry
+            Alex was a fellow in the LA Philharmonic's Nancy and Barry
             Sanders Composer Fellowship Program, where he studied under Andrew
             Norman, Sarah Gibson, and Thomas Kotcheff while receiving private
-            instruction from USC/DU&apos;s Sean Friar. His compositions have
+            instruction from USC/DU's Sean Friar. His compositions have
             been presented at six U.S. National Junior Original Concerts, and
             represented the United States at the 45th Yamaha International JOC
             in Tokyo. In 2017, Alex became the highest scoring and youngest
