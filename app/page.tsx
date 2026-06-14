@@ -67,7 +67,7 @@ function Panel({ href, title, src, thumb }: PanelProps) {
         <span className="text-4xl sm:text-5xl font-light tracking-tight text-white transition-colors duration-300">
           {title}
         </span>
-        <span className="mt-6 text-xs tracking-widest uppercase text-white/60 group-hover:text-white/90 transition-colors duration-300">
+        <span className="mt-6 text-xs tracking-widest uppercase text-white/60 group-hover:text-white/90 transition-all duration-300 underline underline-offset-4 group-hover:underline-offset-6">
           Enter →
         </span>
       </div>
