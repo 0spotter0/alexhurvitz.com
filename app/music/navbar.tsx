@@ -12,7 +12,6 @@ const links = [
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -57,25 +56,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden sm:flex items-center gap-8 text-lg tracking-tight text-gray-400">
-          {links.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`transition-colors duration-300 hover:text-gray-800 ${
-                pathname === href ? "text-gray-800" : ""
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-          <Link
-            href="/photo"
-            className="transition-colors duration-300 hover:text-gray-800"
-          >
-            ← Photography
-          </Link>
-        </div>
+        <NavbarContent className="hidden sm:flex items-center gap-8 text-lg tracking-tight text-gray-400" />
 
         {/* Mobile burger button */}
         <button
@@ -141,30 +122,47 @@ export function Navbar() {
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="sm:hidden overflow-hidden bg-white border-t border-gray-100 pb-2"
           >
-            <div className="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-xl tracking-tight text-gray-400">
-              {links.map(({ label, href }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  onClick={() => setIsBurgerMenuOpen(false)}
-                  className={`transition-colors duration-300 hover:text-gray-800 ${
-                    pathname === href ? "text-gray-800" : ""
-                  }`}
-                >
-                  {label}
-                </Link>
-              ))}
-              <Link
-                href="/photo"
-                onClick={() => setIsBurgerMenuOpen(false)}
-                className="transition-colors duration-300 hover:text-gray-800"
-              >
-                ← Photography
-              </Link>
-            </div>
+            <NavbarContent
+              className="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-xl tracking-tight text-gray-400"
+              closeBurger={() => setIsBurgerMenuOpen(false)}
+            />
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
+  );
+}
+
+function NavbarContent({
+  className,
+  closeBurger,
+}: {
+  className: string;
+  closeBurger?: () => void;
+}) {
+  const pathname = usePathname();
+
+  return (
+    <div className={className}>
+      {links.map(({ label, href }) => (
+        <Link
+          key={href}
+          href={href}
+          onClick={closeBurger}
+          className={`transition-colors duration-300 hover:text-gray-800 ${
+            pathname === href ? "text-gray-800" : ""
+          }`}
+        >
+          {label}
+        </Link>
+      ))}
+      <Link
+        href="/photo"
+        onClick={closeBurger}
+        className="transition-colors duration-300 hover:text-gray-800"
+      >
+        Photography
+      </Link>
+    </div>
   );
 }

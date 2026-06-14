@@ -45,7 +45,7 @@ export function Navbar({ title }: { title: string }) {
       <div className="absolute inset-0 h-fit sm:hidden z-10">
         <div>
           <div className="p-6 sm:p-10 bg-white mt-0 w-full flex justify-between items-center">
-            <p className="text-2xl font-bold">{title}</p>
+            <p className="text-2xl font-medium tracking-wide">{title}</p>
             <button
               onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -109,7 +109,9 @@ export function Navbar({ title }: { title: string }) {
                 className="overflow-hidden bg-white"
               >
                 <div className="p-6 sm:p-10">
-                  <NavbarContent closeBurger={() => setIsBurgerMenuOpen(false)} />
+                  <NavbarContent
+                    closeBurger={() => setIsBurgerMenuOpen(false)}
+                  />
                 </div>
               </motion.div>
             )}
@@ -131,16 +133,15 @@ function NavbarContent({
 
   return (
     <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
-      <div className="sm:h-58">
+      <div className="sm:h-48">
         {title && (
-          <p className="whitespace-pre font-semibold text-2xl md:text-4xl">
+          <p className="whitespace-pre font-medium tracking-wide text-lg sm:text-3xl">
             {title}
           </p>
         )}
-        <Link href="/music" className="block text-sm sm:mt-4 mb-4 sm:mb-0">← <span className="underline">switch to music</span></Link>
       </div>
 
-      <div className="flex flex-col gap-6 underline-offset-2 decoration-1 flex-1">
+      <div className="flex flex-col gap-4 sm:gap-6 underline-offset-2 decoration-1 sm:flex-1">
         <Link
           href="/photo"
           className={pathname === "/photo" ? "underline" : ""}
@@ -184,18 +185,21 @@ function NavbarContent({
         >
           book a session
         </Link>
+        <Link href="/music" onClick={closeBurger}>
+          switch to music
+        </Link>
       </div>
       <div className="flex flex-col gap-4">
         <Link
           href="https://www.instagram.com/real.alex.photo/"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold flex items-center gap-2"
+          className="fixed bottom-6 sm:static font-bold flex items-center gap-2"
         >
           <AiFillInstagram className="size-6" />
           @real.alex.photo
         </Link>
-        <p className="text-xs opacity-60">Copyright © 2026 by [Alex Hurvitz]</p>
+        <p className="text-xs opacity-60 hidden sm:block">Copyright © 2026 by [Alex Hurvitz]</p>
       </div>
     </div>
   );

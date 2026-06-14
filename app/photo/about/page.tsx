@@ -14,7 +14,7 @@ export default function AboutPage() {
             alt="Picture of Alex"
             className="w-full sm:w-3/4"
           />
-          <div className="space-y-4 w-full sm:w-3/4 pb-10 text-justify">
+          <div className="space-y-4 w-full sm:w-3/4 pb-10">
             <p>
               Alex Hurvitz is a Los Angeles–based self-taught photographer who’s
               been behind the camera for nearly two years, capturing everything
