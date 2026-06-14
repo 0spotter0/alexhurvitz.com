@@ -186,7 +186,7 @@ function NavbarContent({
           book a session
         </Link>
         <Link href="/music" onClick={closeBurger}>
-          switch to music
+          music
         </Link>
       </div>
       <div className="flex flex-col gap-4">
