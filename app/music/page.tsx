@@ -1,121 +1,114 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import Link from "next/link";
-import {
-  SiApplemusic,
-  SiSpotify,
-  SiAmazonmusic,
-  SiTidal,
-} from "react-icons/si";
-import { AiFillInstagram } from "react-icons/ai";
+import { SiApplemusic, SiSpotify } from "react-icons/si";
+import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { Navbar } from "@/app/music/navbar";
 
 export const metadata: Metadata = { title: "Music" };
 
-// const tracks: string[] = [];
+const tracks: string[] = ["Value (feat. Dan Ventura)"];
 
-const streamingLinks = [
+type PlatformLink = {
+  label: string;
+  href: string;
+  Icon: ComponentType<{ className?: string }>;
+  className?: string;
+};
+
+const socials: PlatformLink[] = [
   {
     label: "Apple Music",
-    icon: (
-      <SiApplemusic className="w-7 h-7 text-gray-400 group-hover:text-[#FF4E6B] transition-colors duration-400" />
-    ),
-    href: "https://music.apple.com",
+    href: "https://music.apple.com/us/artist/alex-hurvitz/6777116476",
+    Icon: SiApplemusic,
+    className: "hover:text-[#FF4E6B]",
   },
   {
     label: "Spotify",
-    icon: (
-      <SiSpotify className="w-7 h-7 text-gray-400 group-hover:text-[#1DB954] transition-colors duration-400" />
-    ),
-    href: "https://spotify.com",
+    Icon: SiSpotify,
+    className: "hover:text-[#1DB954]",
+    href: "https://open.spotify.com/artist/6o2ttwvZOf3XaGIGmSynVN",
   },
   {
-    label: "Amazon Music",
-    icon: (
-      <SiAmazonmusic className="w-7 h-7 text-gray-400 group-hover:text-[#0077C1] transition-colors duration-400" />
-    ),
-    href: "https://music.amazon.com",
+    label: "Instagram",
+    Icon: AiFillInstagram,
+    className: "hover:text-[#FF0080]",
+
+    href: "https://www.instagram.com/alex_hurvitz/",
   },
   {
-    label: "Tidal",
-    icon: (
-      <SiTidal className="w-7 h-7 text-gray-400 group-hover:text-black transition-colors duration-400" />
-    ),
-    href: "https://tidal.com",
+    label: "YouTube",
+    Icon: AiFillYoutube,
+    className: "hover:text-[#FF0000]",
+    href: "https://www.youtube.com/@alexhurvitz752",
   },
 ];
+
+function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
+      className={`text-gray-400 duration-200 hover:scale-110 text-gray-400 transition-all duration-300 ${className}`}
+    >
+      <Icon className={`w-7 h-7`} />
+    </Link>
+  );
+}
 
 export default function MusicPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto w-full px-6 flex flex-col items-center">
-        <Link
-          href="https://www.instagram.com/alex_hurvitz/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 mb-10"
-        >
-          <AiFillInstagram className="size-6" />
-          @alex_hurvitz
-        </Link>
-
-        <h1 className="text-3xl sm:text-4xl font-light text-gray-800 mb-10">
-          Value (single) out now!
-        </h1>
-
-        {/* Album section */}
-        <div className="flex flex-col sm:flex-row gap-10">
-          {/* Left: album art + streaming links */}
-          <div className="flex flex-col gap-8 flex-shrink-0">
-            {/* Album art */}
-            <div className="w-64 h-64 relative overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-101 duration-300 ease-in-out">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`}
-                alt="Album cover"
-                className="object-cover"
-              />
-            </div>
-
-            {/* Album title + year */}
-            {/* <div className="text-center"> */}
-            {/*   <p className="text-base font-medium text-gray-800 tracking-tight"> */}
-            {/*     Value */}
-            {/*   </p> */}
-            {/*   <p className="text-xs text-gray-400 mt-0.5">2026</p> */}
-            {/* </div> */}
-
-            {/* Streaming links */}
-            <div className="group/streaming relative flex justify-center gap-5">
-              {/* Coming soon popup */}
-              <div className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gray-900 px-3 py-1 text-xs text-white opacity-0 transition-opacity duration-400 group-hover/streaming:opacity-40">
-                Coming soon
+      <main className="px-8 pt-8 sm:pt-0 max-w-4xl mx-auto w-full">
+        <div className="mx-auto flex flex-col w-fit max-w-full">
+          <h1 className="w-full text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
+            New Release
+          </h1>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full">
+            <div className="flex flex-col gap-4 flex-shrink-0 w-full sm:w-64">
+              <div className="w-full max-w-xs mx-auto sm:mx-0 sm:max-w-none sm:w-64 aspect-square relative overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`}
+                  alt="Album cover"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              {streamingLinks.map(({ label, icon }) => (
-                <span
-                  key={label}
-                  aria-label={label}
-                  title={label}
-                  role="img"
-                  className="group cursor-default hover:scale-105 transition-transform duration-200"
-                >
-                  {icon}
-                </span>
+              <div>
+                <p className="text-base font-medium text-gray-800 tracking-tight">
+                  Value (feat. Dan Ventura) - Single
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">2026</p>
+              </div>
+            </div>
+            {tracks.length > 0 && (
+              <ol className="flex flex-col divide-y divide-gray-100 w-full max-w-full sm:max-w-md min-w-0">
+                {tracks.map((track, i) => (
+                  <li key={i} className="flex items-center gap-4 py-3 min-w-0">
+                    <span className="text-xs text-gray-300 w-5 flex-shrink-0 text-right tabular-nums">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-gray-500 pe-4 min-w-0 truncate">
+                      {track}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </div>
+          <div className="mx-auto w-fit px-8 sm:px-20 py-5 mt-12 rounded-xl border border-gray-100 bg-gray-50/50">
+            <p className="text-center text-xs font-medium uppercase tracking-wide text-gray-400">
+              Listen & follow
+            </p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-5">
+              {socials.map((p) => (
+                <PlatformIcon key={p.label} {...p} />
               ))}
             </div>
           </div>
-
-          {/* Right: track list */}
-          {/* <ol className="flex flex-col divide-y divide-gray-100 w-full"> */}
-          {/*   {tracks.map((track, i) => ( */}
-          {/*     <li key={track} className="flex items-center gap-4 py-3"> */}
-          {/*       <span className="text-xs text-gray-300 w-5 text-right tabular-nums"> */}
-          {/*         {i + 1} */}
-          {/*       </span> */}
-          {/*       <span className="text-sm text-gray-500">{track}</span> */}
-          {/*     </li> */}
-          {/*   ))} */}
-          {/* </ol> */}
         </div>
       </main>
     </>

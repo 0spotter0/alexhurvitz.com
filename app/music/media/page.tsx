@@ -38,7 +38,7 @@ export default function MediaPage() {
         <h1 className="text-4xl font-light tracking-tight text-gray-800 mb-12">
           Videos
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {videos.map((id) => (
             <div key={id} className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe

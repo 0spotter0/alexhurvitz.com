@@ -98,16 +98,19 @@ export function Navbar({ title }: { title: string }) {
               </AnimatePresence>
             </button>
           </div>
-          <AnimatePresence mode="sync">
+          <AnimatePresence initial={false}>
             {isBurgerMenuOpen && (
               <motion.div
-                initial={{ translateY: -20, opacity: 0 }}
-                animate={{ translateY: 0, opacity: 1 }}
-                exit={{ translateY: -20, opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white p-6 sm:p-10"
+                key="mobile-menu"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                className="overflow-hidden bg-white"
               >
-                <NavbarContent closeBurger={() => setIsBurgerMenuOpen(false)} />
+                <div className="p-6 sm:p-10">
+                  <NavbarContent closeBurger={() => setIsBurgerMenuOpen(false)} />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -128,19 +131,35 @@ function NavbarContent({
 
   return (
     <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
-      {title && (
-        <p className="whitespace-pre font-semibold text-2xl md:text-4xl h-52">
-          {title}
-        </p>
-      )}
+      <div className="sm:h-58">
+        {title && (
+          <p className="whitespace-pre font-semibold text-2xl md:text-4xl">
+            {title}
+          </p>
+        )}
+        <Link href="/music" className="block text-sm sm:mt-4 mb-4 sm:mb-0">← <span className="underline">switch to music</span></Link>
+      </div>
+
       <div className="flex flex-col gap-6 underline-offset-2 decoration-1 flex-1">
-        <Link href="/photo" className={pathname === "/photo" ? "underline" : ""}>
+        <Link
+          href="/photo"
+          className={pathname === "/photo" ? "underline" : ""}
+        >
           home
         </Link>
-        <Link href="/photo/about" className={pathname === "/photo/about" ? "underline" : ""}>
+        <Link
+          href="/photo/about"
+          className={pathname === "/photo/about" ? "underline" : ""}
+        >
           about me
         </Link>
-        <Link href="/photo/collections" className={pathname === "/photo/collections" ? "underline" : ""} onClick={closeBurger}>collections</Link>
+        <Link
+          href="/photo/collections"
+          className={pathname === "/photo/collections" ? "underline" : ""}
+          onClick={closeBurger}
+        >
+          collections
+        </Link>
         {Object.keys(collectionsPageMap).map((collection, index) => (
           <Link
             key={index}
@@ -151,10 +170,18 @@ function NavbarContent({
             {collection}
           </Link>
         ))}
-        <Link href="/photo/contact" className={pathname === "/photo/contact" ? "underline" : ""} onClick={closeBurger}>
+        <Link
+          href="/photo/contact"
+          className={pathname === "/photo/contact" ? "underline" : ""}
+          onClick={closeBurger}
+        >
           contact
         </Link>
-        <Link href="/photo/book" className={pathname === "/photo/book" ? "underline" : ""} onClick={closeBurger}>
+        <Link
+          href="/photo/book"
+          className={pathname === "/photo/book" ? "underline" : ""}
+          onClick={closeBurger}
+        >
           book a session
         </Link>
       </div>

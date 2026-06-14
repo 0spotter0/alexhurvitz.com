@@ -66,7 +66,7 @@ export default function AboutPage() {
               storytelling.
             </p>
           </div>
-          <div className="w-full md:w-4/10 flex flex-row md:flex-col gap-8">
+          <div className="w-full md:w-4/10 flex flex-row md:flex-col gap-4 sm:gap-18">
             <img
               src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/aboutme-alex.webp`}
               alt="Album cover"

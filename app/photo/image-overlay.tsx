@@ -38,28 +38,30 @@ export function ImageOverlay({
           loading="lazy"
         />
         <div
-          className="self-start flex flex-col text-white gap-2 sm:my-auto w-fit cursor-default"
+          className="w-full sm:w-fit flex flex-col text-white gap-4 sm:gap-14 sm:my-auto cursor-default"
           onClick={(e) => e.stopPropagation()}
         >
-          {image.shutter && (
-            <p className="font-semibold flex items-center gap-2">
-              <MdOutlineTimer className="opacity-60 text-xl shrink-0" />
-              {image.shutter}
-            </p>
-          )}
-          {image.aperture && (
-            <p className="font-semibold flex items-center gap-2">
-              <IoMdAperture className="opacity-60 text-xl shrink-0" />
-              {image.aperture}
-            </p>
-          )}
-          {image.iso && (
-            <p className="font-semibold flex items-center gap-2">
-              <TbBrightnessUp className="opacity-60 text-xl shrink-0" />
-              {image.iso}
-            </p>
-          )}
-          <p className="mt-14 text-sm italic">{image.date}</p>
+          <div className="w-full flex flex-row justify-around sm:flex-col sm:gap-2">
+            {image.shutter && (
+              <p className="font-semibold flex items-center gap-2">
+                <MdOutlineTimer className="opacity-60 text-xl shrink-0" />
+                {image.shutter}
+              </p>
+            )}
+            {image.aperture && (
+              <p className="font-semibold flex items-center gap-2">
+                <IoMdAperture className="opacity-60 text-xl shrink-0" />
+                {image.aperture}
+              </p>
+            )}
+            {image.iso && (
+              <p className="font-semibold flex items-center gap-2">
+                <TbBrightnessUp className="opacity-60 text-xl shrink-0" />
+                {image.iso}
+              </p>
+            )}
+          </div>
+          <p className="w-full text-center sm:text-left text-sm italic">{image.date}</p>
         </div>
       </motion.div>
     </motion.div>
