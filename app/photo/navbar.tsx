@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { collectionsPageMap } from "@/app/photo/data";
+import { HomeButton } from "@/app/home-button";
 
 export function Navbar({ title }: { title: string }) {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
@@ -185,9 +186,7 @@ function NavbarContent({
         >
           book a session
         </Link>
-        <Link href="/music" onClick={closeBurger}>
-          music
-        </Link>
+        <HomeButton />
       </div>
       <div className="flex flex-col gap-4">
         <Link

@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import { HomeButton } from "@/app/home-button";
+
 const links = [
   { label: "About", href: "/music/about" },
   { label: "Media", href: "/music/media" },
@@ -156,13 +158,7 @@ function NavbarContent({
           {label}
         </Link>
       ))}
-      <Link
-        href="/photo"
-        onClick={closeBurger}
-        className="transition-colors duration-300 hover:text-gray-800"
-      >
-        Photography
-      </Link>
+      <HomeButton />
     </div>
   );
 }
