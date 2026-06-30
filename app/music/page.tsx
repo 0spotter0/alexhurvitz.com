@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/app/music/navbar";
+import { Fragment } from "react";
 
 export const metadata: Metadata = { title: "Music" };
 
-const tracks: string[] = ["Value (feat. Dan Ventura)"];
+type Album = {
+  coverSrc: string;
+  title: string;
+  year: string;
+  tracks: string[];
+};
+
+const albums: Album[] = [
+  {
+    coverSrc: `${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`,
+    title: "Value (feat. Dan Ventura) - Single",
+    year: "2026",
+    tracks: ["Value (feat. Dan Ventura)"],
+  },
+];
 
 export default function MusicPage() {
   return (
@@ -14,39 +29,51 @@ export default function MusicPage() {
           <h1 className="w-full text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
             New Release
           </h1>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full">
-            <div className="flex flex-col gap-4 flex-shrink-0 w-full sm:w-64">
-              <div className="w-full max-w-xs mx-auto sm:mx-0 sm:max-w-none sm:w-64 aspect-square relative overflow-hidden shadow-md border border-gray-100">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`}
-                  alt="Album cover"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-base font-medium text-gray-800 tracking-tight">
-                  Value (feat. Dan Ventura) - Single
-                </p>
-                <p className="text-xs text-gray-400 mt-0.5">2026</p>
-              </div>
-            </div>
-            {tracks.length > 0 && (
-              <ol className="flex flex-col divide-y divide-gray-100 w-full max-w-full sm:max-w-md min-w-0">
-                {tracks.map((track, i) => (
-                  <li key={i} className="flex items-center gap-4 py-3 min-w-0">
-                    <span className="text-xs text-gray-300 w-5 flex-shrink-0 text-right tabular-nums">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm text-gray-500 pe-4 min-w-0 truncate">
-                      {track}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            )}
+          <div className="space-y-20">
+            {albums.map((album, index) => (
+              <Fragment key={index}>
+                <AlbumView {...album} />
+              </Fragment>
+            ))}
           </div>
         </div>
       </main>
     </>
+  );
+}
+
+function AlbumView({ coverSrc, title, year, tracks }: Album) {
+  return (
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full">
+      <div className="flex flex-col gap-4 flex-shrink-0 w-full sm:w-64">
+        <div className="w-full max-w-xs mx-auto sm:mx-0 sm:max-w-none sm:w-64 aspect-square relative overflow-hidden shadow-md border border-gray-100">
+          <img
+            src={coverSrc}
+            alt="Album cover"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <p className="text-base font-medium text-gray-800 tracking-tight">
+            {title}
+          </p>
+          <p className="text-xs text-gray-400 mt-0.5">{year}</p>
+        </div>
+      </div>
+      {tracks.length > 0 && (
+        <ol className="flex flex-col divide-y divide-gray-100 w-full max-w-full sm:max-w-md min-w-0">
+          {tracks.map((track, i) => (
+            <li key={i} className="flex items-center gap-4 py-3 min-w-0">
+              <span className="text-xs text-gray-300 w-5 flex-shrink-0 text-right tabular-nums">
+                {i + 1}
+              </span>
+              <span className="text-sm text-gray-500 pe-4 min-w-0 truncate">
+                {track}
+              </span>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
   );
 }
