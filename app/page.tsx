@@ -81,7 +81,7 @@ export default function LandingPage() {
       <Panel
         href="/photo"
         title="Photography"
-        src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/choose/music-video.mp4`}
+        src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/choose/photo-video.mp4`}
         thumb={`${process.env.NEXT_PUBLIC_BUNNY_URL}/choose/photo-video_thumb.webp`}
       />
 
