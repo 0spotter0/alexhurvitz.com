@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { AiFillInstagram } from "react-icons/ai";
+import { SiUnsplash } from "react-icons/si";
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { collectionsPageMap } from "@/app/photo/data";
-import { HomeButton } from "@/app/home-button";
+import { SectionTitle } from "@/app/section-title";
 
 export function Navbar({ title }: { title: string }) {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
@@ -46,7 +47,10 @@ export function Navbar({ title }: { title: string }) {
       <div className="absolute inset-0 h-fit sm:hidden z-10">
         <div>
           <div className="p-6 sm:p-10 bg-white mt-0 w-full flex justify-between items-center">
-            <p className="text-2xl font-medium tracking-wide">{title}</p>
+            <div className="flex flex-col gap-1">
+              <SectionTitle current="photography" className="text-sm" />
+              <p className="text-2xl font-medium tracking-wide">{title}</p>
+            </div>
             <button
               onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -136,9 +140,15 @@ function NavbarContent({
     <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
       <div className="sm:h-48">
         {title && (
-          <p className="whitespace-pre font-medium tracking-wide text-lg sm:text-3xl">
-            {title}
-          </p>
+          <>
+            <SectionTitle
+              current="photography"
+              className="text-sm sm:text-base mb-3"
+            />
+            <p className="whitespace-pre font-medium tracking-wide text-lg sm:text-3xl">
+              {title}
+            </p>
+          </>
         )}
       </div>
 
@@ -186,9 +196,17 @@ function NavbarContent({
         >
           book a session
         </Link>
-        <HomeButton />
       </div>
       <div className="flex flex-col gap-4">
+        <Link
+          href="https://unsplash.com/@alex_hurvitz/collections"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold flex items-center gap-2"
+        >
+          <SiUnsplash className="ml-[2px] size-5" />
+          @alex_hurvitz
+        </Link>
         <Link
           href="https://www.instagram.com/real.alex.photo/"
           target="_blank"
