@@ -47,7 +47,7 @@ export function Navbar({ title }: { title: string }) {
       <div className="absolute inset-0 h-fit sm:hidden z-10">
         <div>
           <div className="p-6 sm:p-10 bg-white mt-0 w-full flex justify-between items-center">
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-4">
               <SectionTitle current="photography" className="text-sm" />
               <p className="text-2xl font-medium tracking-wide">{title}</p>
             </div>
@@ -135,6 +135,9 @@ function NavbarContent({
   closeBurger?: () => void;
 }) {
   const pathname = usePathname();
+  const isOnCollection = pathname.startsWith("/photo/collections/");
+  const [isCollectionsOpen, setIsCollectionsOpen] =
+    useState<boolean>(isOnCollection);
 
   return (
     <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
@@ -165,23 +168,61 @@ function NavbarContent({
         >
           about me
         </Link>
-        <Link
-          href="/photo/collections"
-          className={pathname === "/photo/collections" ? "underline" : ""}
-          onClick={closeBurger}
-        >
-          collections
-        </Link>
-        {Object.keys(collectionsPageMap).map((collection, index) => (
+        <div className="flex items-center gap-2">
           <Link
-            key={index}
-            href={`/photo/collections/${collection}`}
+            href="/photo/collections"
+            className={pathname === "/photo/collections" ? "underline" : ""}
             onClick={closeBurger}
-            className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
           >
-            {collection}
+            collections
           </Link>
-        ))}
+          <button
+            type="button"
+            aria-label="Toggle collections"
+            aria-expanded={isCollectionsOpen}
+            onClick={() => setIsCollectionsOpen((open) => !open)}
+            className="p-1 hover:bg-gray-100 rounded transition-colors"
+          >
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              animate={{ rotate: isCollectionsOpen ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <path d="m6 9 6 6 6-6" />
+            </motion.svg>
+          </button>
+        </div>
+        <AnimatePresence initial={false}>
+          {isCollectionsOpen && (
+            <motion.div
+              key="collections-dropdown"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              className="overflow-hidden flex flex-col gap-4 sm:gap-6"
+            >
+              {Object.keys(collectionsPageMap).map((collection, index) => (
+                <Link
+                  key={index}
+                  href={`/photo/collections/${collection}`}
+                  onClick={closeBurger}
+                  className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
+                >
+                  {collection}
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
         <Link
           href="/photo/contact"
           className={pathname === "/photo/contact" ? "underline" : ""}
@@ -197,7 +238,7 @@ function NavbarContent({
           book a session
         </Link>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="fixed bottom-6 sm:static flex flex-col gap-4">
         <Link
           href="https://unsplash.com/@alex_hurvitz/collections"
           target="_blank"
@@ -211,7 +252,7 @@ function NavbarContent({
           href="https://www.instagram.com/real.alex.photo/"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 sm:static font-bold flex items-center gap-2"
+          className="font-bold flex items-center gap-2"
         >
           <AiFillInstagram className="size-6" />
           @real.alex.photo
