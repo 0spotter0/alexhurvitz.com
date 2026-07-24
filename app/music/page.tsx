@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/app/music/navbar";
+import { AlbumLinks } from "@/app/music/album-links";
 import { Fragment } from "react";
 
 export const metadata: Metadata = { title: "Music" };
@@ -9,14 +10,49 @@ type Album = {
   title: string;
   year: string;
   tracks: string[];
+  links?: {
+    spotify?: string;
+    apple?: string;
+    soundcloud?: string;
+    bandcamp?: string;
+  };
 };
 
 const albums: Album[] = [
+  {
+    coverSrc: `${process.env.NEXT_PUBLIC_BUNNY_URL}/music/dandelion-cover.webp`,
+    title: "Dandelion Dream",
+    year: "2026",
+    tracks: [
+      "Glenn Zaleski Trio Like Piece (Hopefully) / Timeless Thoughts - Live",
+      "Dandelion Dream - Live",
+      "Where The Wind Leads - Live",
+      "Forgetting Again - Live",
+      "Endless Meadow - Live",
+      "Your Eyes - Live",
+      "Picnic Friend - Live",
+      "See You Again Tomorrow - Live",
+    ],
+    links: {
+      spotify:
+        "https://open.spotify.com/album/4i1kGttOdX41I5vJgpoYOA?si=xsoigFchRWShzfL4rN-6gQ",
+      apple:
+        "https://music.apple.com/us/album/dandelion-dream/6792819745",
+      soundcloud: "https://soundcloud.com/alexhurvitz/sets/dandelion-dream-1",
+    },
+  },
   {
     coverSrc: `${process.env.NEXT_PUBLIC_BUNNY_URL}/music/value-cover.webp`,
     title: "Value (feat. Dan Ventura) - Single",
     year: "2026",
     tracks: ["Value (feat. Dan Ventura)"],
+    links: {
+      spotify:
+        "https://open.spotify.com/album/2Irfhy6jBYz1b3Y69CDsO0?si=KeA-aJrgRkqIu5eJ1WX3tw",
+      apple:
+        "https://music.apple.com/us/album/value-feat-dan-ventura-single/6777116475",
+      soundcloud: "https://soundcloud.com/alexhurvitz/value-feat-dan-ventura",
+    },
   },
 ];
 
@@ -42,7 +78,7 @@ export default function MusicPage() {
   );
 }
 
-function AlbumView({ coverSrc, title, year, tracks }: Album) {
+function AlbumView({ coverSrc, title, year, tracks, links }: Album) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full">
       <div className="flex flex-col gap-4 flex-shrink-0 w-full sm:w-64">
@@ -54,10 +90,8 @@ function AlbumView({ coverSrc, title, year, tracks }: Album) {
           />
         </div>
         <div>
-          <p className="text-base font-medium text-gray-800 tracking-tight">
-            {title}
-          </p>
-          <p className="text-xs text-gray-400 mt-0.5">{year}</p>
+          <AlbumLinks title={title} links={links} />
+          <p className="text-xs text-gray-400 mt-2">{year}</p>
         </div>
       </div>
       {tracks.length > 0 && (

@@ -71,7 +71,7 @@ function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
 
 export function Socials() {
   return (
-    <div className="mx-auto w-fit px-8 sm:px-10 py-5 my-8 rounded-xl border border-gray-200 bg-gray-200/40">
+    <div className="mx-auto w-fit px-6 sm:px-10 py-5 my-8 rounded-xl border border-gray-200 bg-gray-200/40">
       <p className="text-center text-xs font-medium uppercase tracking-wide text-gray-500">
         Listen & follow
       </p>
