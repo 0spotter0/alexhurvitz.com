@@ -1,6 +1,11 @@
 import Link from "next/link";
 import type { ComponentType } from "react";
-import { SiApplemusic, SiSpotify } from "react-icons/si";
+import {
+  SiApplemusic,
+  SiBandcamp,
+  SiSoundcloud,
+  SiSpotify,
+} from "react-icons/si";
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 
 type PlatformLink = {
@@ -12,29 +17,40 @@ type PlatformLink = {
 
 const socials: PlatformLink[] = [
   {
+    label: "Spotify",
+    href: "https://open.spotify.com/artist/6o2ttwvZOf3XaGIGmSynVN",
+    Icon: SiSpotify,
+    className: "hover:text-[#1DB954]",
+  },
+  {
     label: "Apple Music",
     href: "https://music.apple.com/us/artist/alex-hurvitz/6777116476",
     Icon: SiApplemusic,
     className: "hover:text-[#FF4E6B]",
   },
   {
-    label: "Spotify",
-    Icon: SiSpotify,
-    className: "hover:text-[#1DB954]",
-    href: "https://open.spotify.com/artist/6o2ttwvZOf3XaGIGmSynVN",
+    label: "Soundcloud",
+    href: "https://soundcloud.com/alexhurvitz",
+    Icon: SiSoundcloud,
+    className: "hover:text-[#FF5402]",
+  },
+  {
+    label: "Bandcamp",
+    href: "https://alexhurvitz.bandcamp.com/",
+    Icon: SiBandcamp,
+    className: "hover:text-[#0AADD7]",
   },
   {
     label: "Instagram",
+    href: "https://www.instagram.com/alex_hurvitz/",
     Icon: AiFillInstagram,
     className: "hover:text-[#FF0080]",
-
-    href: "https://www.instagram.com/alex_hurvitz/",
   },
   {
     label: "YouTube",
+    href: "https://www.youtube.com/@alexhurvitz752",
     Icon: AiFillYoutube,
     className: "hover:text-[#FF0000]",
-    href: "https://www.youtube.com/@alexhurvitz752",
   },
 ];
 
@@ -55,7 +71,7 @@ function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
 
 export function Socials() {
   return (
-    <div className="mx-auto w-fit px-8 sm:px-20 py-5 my-8 rounded-xl border border-gray-200 bg-gray-200/40">
+    <div className="mx-auto w-fit px-8 sm:px-10 py-5 my-8 rounded-xl border border-gray-200 bg-gray-200/40">
       <p className="text-center text-xs font-medium uppercase tracking-wide text-gray-500">
         Listen & follow
       </p>
