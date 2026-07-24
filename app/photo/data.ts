@@ -292,12 +292,12 @@ export const portraitsGallery: ImageMetadata[] = [
     orientation: "portrait",
   },
   {
-    filename: "DSC05153",
-    date: "August 22nd 2025",
-    shutter: "1/100",
-    aperture: "f/2.0",
-    iso: "400",
-    orientation: "portrait",
+    filename: "DSC00777-2",
+    date: "May 29th 2026",
+    shutter: "1/200",
+    aperture: "f/5.6",
+    iso: "1600",
+    orientation: "landscape",
   },
   {
     filename: "DSC05092",
