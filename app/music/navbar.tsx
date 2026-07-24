@@ -10,6 +10,7 @@ import { HomeButton } from "@/app/home-button";
 const links = [
   { label: "About", href: "/music/about" },
   { label: "Media", href: "/music/media" },
+  { label: "Book", href: "/music/book" },
   { label: "Contact", href: "/music/contact" },
 ];
 

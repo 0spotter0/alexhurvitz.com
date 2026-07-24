@@ -9,7 +9,7 @@ export default function BookPage() {
     <>
       <Navbar title={"BOOK"} />
       <div className="w-full h-full my-auto">
-        <Booker calUsername={process.env.NEXT_PUBLIC_CAL_USERNAME!} />
+        <Booker calUsername={process.env.NEXT_PUBLIC_CAL_PHOTO!} />
       </div>
     </>
   );
