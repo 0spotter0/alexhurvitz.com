@@ -62,7 +62,7 @@ function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      className={`text-gray-400 duration-200 hover:scale-110 text-gray-400 transition-all duration-300 ${className}`}
+      className={`text-gray-400 duration-200 hover:scale-105 text-gray-400 transition-all duration-300 ${className}`}
     >
       <Icon className={`w-7 h-7`} />
     </Link>
@@ -71,7 +71,7 @@ function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
 
 export function Socials() {
   return (
-    <div className="mx-auto w-fit px-6 sm:px-10 py-5 my-8 rounded-xl border border-gray-200 bg-gray-200/40">
+    <div className="mx-auto w-fit px-6 sm:px-10 py-5 my-8 rounded-xl">
       <p className="text-center text-xs font-medium uppercase tracking-wide text-gray-500">
         Listen & follow
       </p>

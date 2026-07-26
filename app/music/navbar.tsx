@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { SectionTitle } from "@/app/section-title";
 
 const links = [
+  { label: "Albums", href: "/music" },
   { label: "About", href: "/music/about" },
   { label: "Media", href: "/music/media" },
   { label: "Book", href: "/music/book" },

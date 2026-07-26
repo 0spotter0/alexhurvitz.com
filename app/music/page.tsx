@@ -36,8 +36,7 @@ const albums: Album[] = [
     links: {
       spotify:
         "https://open.spotify.com/album/4i1kGttOdX41I5vJgpoYOA?si=xsoigFchRWShzfL4rN-6gQ",
-      apple:
-        "https://music.apple.com/us/album/dandelion-dream/6792819745",
+      apple: "https://music.apple.com/us/album/dandelion-dream/6792819745",
       soundcloud: "https://soundcloud.com/alexhurvitz/sets/dandelion-dream-1",
     },
   },
@@ -60,10 +59,10 @@ export default function MusicPage() {
   return (
     <>
       <Navbar />
-      <main className="px-8 pt-8 sm:pt-0 max-w-4xl mx-auto w-full">
+      <main className="px-4 pt-4 sm:pt-0 max-w-4xl mx-auto w-full">
         <div className="mx-auto flex flex-col w-fit max-w-full">
-          <h1 className="w-full text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
-            New Release
+          <h1 className="w-full text-center sm:text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
+            Newest Release
           </h1>
           <div className="space-y-20">
             {albums.map((album, index) => (
@@ -80,18 +79,19 @@ export default function MusicPage() {
 
 function AlbumView({ coverSrc, title, year, tracks, links }: Album) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full">
-      <div className="flex flex-col gap-4 flex-shrink-0 w-full sm:w-64">
-        <div className="w-full max-w-xs mx-auto sm:mx-0 sm:max-w-none sm:w-64 aspect-square relative overflow-hidden shadow-md border border-gray-100">
+    <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-fit mx-auto sm:mx-0">
+        <div className="w-64 sm:w-52 mx-auto aspect-square relative overflow-hidden shadow-md rounded-sm">
           <img
             src={coverSrc}
             alt="Album cover"
             className="w-full h-full object-cover"
           />
         </div>
-        <div>
-          <AlbumLinks title={title} links={links} />
-          <p className="text-xs text-gray-400 mt-2">{year}</p>
+        <div className="mx-auto text-center sm:text-left">
+          <p className="text-xl text-gray-800 tracking-tight">{title}</p>
+          <p className="text-sm text-gray-400">{year}</p>
+          <AlbumLinks links={links} />
         </div>
       </div>
       {tracks.length > 0 && (
