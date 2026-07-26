@@ -168,61 +168,65 @@ function NavbarContent({
         >
           about me
         </Link>
-        <div className="flex items-center gap-2">
-          <Link
-            href="/photo/collections"
-            className={pathname === "/photo/collections" ? "underline" : ""}
-            onClick={closeBurger}
-          >
-            collections
-          </Link>
-          <button
-            type="button"
-            aria-label="Toggle collections"
-            aria-expanded={isCollectionsOpen}
-            onClick={() => setIsCollectionsOpen((open) => !open)}
-            className="p-1 hover:bg-gray-100 rounded transition-colors"
-          >
-            <motion.svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              animate={{ rotate: isCollectionsOpen ? 180 : 0 }}
-              transition={{ duration: 0.2 }}
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2">
+            <Link
+              href="/photo/collections"
+              className={pathname === "/photo/collections" ? "underline" : ""}
+              onClick={closeBurger}
             >
-              <path d="m6 9 6 6 6-6" />
-            </motion.svg>
-          </button>
+              collections
+            </Link>
+            <button
+              type="button"
+              aria-label="Toggle collections"
+              aria-expanded={isCollectionsOpen}
+              onClick={() => setIsCollectionsOpen((open) => !open)}
+              className="p-1 hover:bg-gray-100 rounded transition-colors"
+            >
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                animate={{ rotate: isCollectionsOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <path d="m6 9 6 6 6-6" />
+              </motion.svg>
+            </button>
+          </div>
+          <AnimatePresence initial={false}>
+            {isCollectionsOpen && (
+              <motion.div
+                key="collections-dropdown"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="flex flex-col gap-4 sm:gap-6 pt-4 sm:pt-6">
+                  {Object.keys(collectionsPageMap).map((collection, index) => (
+                    <Link
+                      key={index}
+                      href={`/photo/collections/${collection}`}
+                      onClick={closeBurger}
+                      className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
+                    >
+                      {collection}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <AnimatePresence initial={false}>
-          {isCollectionsOpen && (
-            <motion.div
-              key="collections-dropdown"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-              className="overflow-hidden flex flex-col gap-4 sm:gap-6"
-            >
-              {Object.keys(collectionsPageMap).map((collection, index) => (
-                <Link
-                  key={index}
-                  href={`/photo/collections/${collection}`}
-                  onClick={closeBurger}
-                  className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
-                >
-                  {collection}
-                </Link>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
         <Link
           href="/photo/contact"
           className={pathname === "/photo/contact" ? "underline" : ""}
