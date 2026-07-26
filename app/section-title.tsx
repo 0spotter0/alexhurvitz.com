@@ -21,6 +21,8 @@ export function SectionTitle({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
+  const filteredSections = sections.filter((s) => s.label !== current);
+
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -53,59 +55,59 @@ export function SectionTitle({
       <span aria-hidden className="opacity-50">
         /
       </span>
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className="inline-flex items-center gap-1 transition-opacity hover:opacity-60"
-      >
-        {current}
-        <motion.svg
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          xmlns="http://www.w3.org/2000/svg"
-          width="1em"
-          height="1em"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden
+      <div className="relative inline-flex">
+        <button
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-haspopup="menu"
+          aria-expanded={open}
+          className="inline-flex items-center gap-1 transition-opacity hover:opacity-60"
         >
-          <path d="m6 9 6 6 6-6" />
-        </motion.svg>
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="section-menu"
-            role="menu"
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full z-50 mt-2 min-w-[9rem] overflow-hidden rounded-lg border border-gray-200 bg-white py-1 shadow-lg"
+          {current}
+          <motion.svg
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
           >
-            {sections.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                role="menuitem"
-                onClick={() => setOpen(false)}
-                className={`block px-4 py-2 text-base transition-colors hover:bg-gray-100 ${
-                  label === current ? "font-semibold text-gray-900" : "text-gray-600"
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <path d="m6 9 6 6 6-6" />
+          </motion.svg>
+        </button>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="section-menu"
+              role="menu"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.15 }}
+              className="absolute -left-3 top-full z-50 mt-1 overflow-hidden rounded-md bg-white/70 px-3 py-2 backdrop-blur-sm"
+            >
+              {filteredSections.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  role="menuitem"
+                  onClick={() => setOpen(false)}
+                  className="block text-gray-500 transition-colors hover:text-gray-900"
+                >
+                  {label}
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

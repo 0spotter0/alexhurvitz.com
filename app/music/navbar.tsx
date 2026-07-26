@@ -107,19 +107,19 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile full-screen menu */}
       <AnimatePresence initial={false}>
         {isBurgerMenuOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="sm:hidden overflow-hidden bg-white border-t border-gray-100 pb-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            className="sm:hidden fixed inset-x-0 top-20 bottom-0 overflow-y-auto bg-white border-t border-gray-100"
           >
             <NavbarContent
-              className="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-xl tracking-tight text-gray-400"
+              className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-8 text-2xl tracking-tight text-gray-400"
               closeBurger={() => setIsBurgerMenuOpen(false)}
             />
           </motion.div>

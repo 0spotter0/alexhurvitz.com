@@ -243,6 +243,7 @@ function NavbarContent({
           href="https://unsplash.com/@alex_hurvitz/collections"
           target="_blank"
           rel="noopener noreferrer"
+          title="Unsplash"
           className="font-bold flex items-center gap-2"
         >
           <SiUnsplash className="ml-[2px] size-5" />
@@ -252,6 +253,7 @@ function NavbarContent({
           href="https://www.instagram.com/real.alex.photo/"
           target="_blank"
           rel="noopener noreferrer"
+          title="Instagram"
           className="font-bold flex items-center gap-2"
         >
           <AiFillInstagram className="size-6" />
