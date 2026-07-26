@@ -88,14 +88,14 @@ function AlbumView({ coverSrc, title, year, tracks, links }: Album) {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="mx-auto text-center sm:text-left">
+        <div className="mx-auto text-center sm:text-left sm:mt-4">
           <p className="text-xl text-gray-800 tracking-tight">{title}</p>
           <p className="text-sm text-gray-400">{year}</p>
           <AlbumLinks links={links} />
         </div>
       </div>
       {tracks.length > 0 && (
-        <ol className="flex flex-col divide-y divide-gray-100 w-full max-w-full sm:max-w-md min-w-0">
+        <ol className="flex flex-col divide-y divide-gray-100 w-full max-w-full sm:max-w-lg min-w-0">
           {tracks.map((track, i) => (
             <li key={i} className="flex items-center gap-4 py-3 min-w-0">
               <span className="text-xs text-gray-300 w-5 flex-shrink-0 text-right tabular-nums">
