@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import favicon from "../favicon.ico";
 
 import { SectionTitle } from "@/app/section-title";
 
@@ -46,10 +47,12 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-white">
       <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
-        <SectionTitle
-          current="music"
-          className="text-lg font-light tracking-tight text-gray-800"
-        />
+        <div className="flex gap-4 items-center">
+          <SectionTitle
+            current="music"
+            className="text-lg font-light tracking-tight text-gray-800"
+          />
+        </div>
 
         {/* Desktop links */}
         <NavbarContent className="hidden sm:flex items-center gap-8 text-lg tracking-tight text-gray-400" />

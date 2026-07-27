@@ -9,9 +9,6 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main className="max-w-xl mx-auto w-full px-6">
-        <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">
-          Contact
-        </p>
         <h1 className="text-4xl font-light tracking-tight text-gray-800 mb-10">
           Get in touch
         </h1>

@@ -8,9 +8,6 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main className="max-w-4xl mx-auto w-full px-6">
-        <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">
-          About
-        </p>
         <h1 className="text-4xl font-light tracking-tight text-gray-800 mb-6">
           Alex Hurvitz
         </h1>

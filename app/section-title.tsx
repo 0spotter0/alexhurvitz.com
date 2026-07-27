@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import favicon from "./favicon.ico"
 
 const sections = [
   { label: "photography", href: "/photo" },
@@ -48,8 +49,9 @@ export function SectionTitle({
     >
       <Link
         href="/"
-        className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-60"
+        className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-80 flex gap-3 items-center shrink-0"
       >
+        <img src={favicon.src} className="w-7 h-7" />
         alexhurvitz.com
       </Link>
       <span aria-hidden className="opacity-50">
@@ -61,7 +63,7 @@ export function SectionTitle({
           onClick={() => setOpen((prev) => !prev)}
           aria-haspopup="menu"
           aria-expanded={open}
-          className="inline-flex items-center gap-1 transition-opacity hover:opacity-60"
+          className="inline-flex items-center gap-1 transition-opacity hover:opacity-80"
         >
           {current}
           <motion.svg

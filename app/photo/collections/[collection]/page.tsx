@@ -33,7 +33,7 @@ export default async function CollectionPage({
 
   return (
     <>
-      <Navbar title={collection.toUpperCase()} />
+      <Navbar />
       <ImageGallery images={imageCollection} />
     </>
   );

@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { collectionsPageMap } from "@/app/photo/data";
 import { SectionTitle } from "@/app/section-title";
 
-export function Navbar({ title }: { title: string }) {
+export function Navbar() {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -42,15 +42,12 @@ export function Navbar({ title }: { title: string }) {
   return (
     <>
       <div className="hidden sm:block sticky top-10 self-start">
-        <NavbarContent title={title} />
+        <NavbarContent />
       </div>
       <div className="absolute inset-0 h-fit sm:hidden z-10">
         <div>
           <div className="p-6 sm:p-10 bg-white mt-0 w-full flex justify-between items-center">
-            <div className="flex flex-col gap-4">
-              <SectionTitle current="photography" className="text-sm" />
-              <p className="text-2xl font-medium tracking-wide">{title}</p>
-            </div>
+            <SectionTitle current="photography" className="text-sm" />
             <button
               onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -128,7 +125,6 @@ export function Navbar({ title }: { title: string }) {
 }
 
 function NavbarContent({
-  title,
   closeBurger,
 }: {
   title?: string;
@@ -140,31 +136,21 @@ function NavbarContent({
     useState<boolean>(isOnCollection);
 
   return (
-    <div className="flex flex-col w-[15rem] md:w-[20rem] h-[calc(100vh-5rem)]">
-      <div className="sm:h-48">
-        {title && (
-          <>
-            <SectionTitle
-              current="photography"
-              className="text-sm sm:text-base mb-3"
-            />
-            <p className="whitespace-pre font-medium tracking-wide text-lg sm:text-3xl">
-              {title}
-            </p>
-          </>
-        )}
+    <div className="flex flex-col w-[20rem] h-[calc(100vh-5rem)]">
+      <div className="hidden sm:block sm:h-20">
+        <SectionTitle current="photography" className="text-sm sm:text-base" />
       </div>
 
       <div className="flex flex-col gap-4 sm:gap-6 underline-offset-2 decoration-1 sm:flex-1">
         <Link
           href="/photo"
-          className={pathname === "/photo" ? "underline" : ""}
+          className={pathname === "/photo" ? "font-bold" : ""}
         >
           home
         </Link>
         <Link
           href="/photo/about"
-          className={pathname === "/photo/about" ? "underline" : ""}
+          className={pathname === "/photo/about" ? "font-bold" : ""}
         >
           about me
         </Link>
@@ -172,7 +158,7 @@ function NavbarContent({
           <div className="flex items-center gap-2">
             <Link
               href="/photo/collections"
-              className={pathname === "/photo/collections" ? "underline" : ""}
+              className={pathname === "/photo/collections" ? "font-bold" : ""}
               onClick={closeBurger}
             >
               collections
@@ -217,7 +203,7 @@ function NavbarContent({
                       key={index}
                       href={`/photo/collections/${collection}`}
                       onClick={closeBurger}
-                      className={`ms-10 ${pathname === `/photo/collections/${collection}` ? " underline" : ""}`}
+                      className={`ms-10 ${pathname === `/photo/collections/${collection}` ? "font-bold" : ""}`}
                     >
                       {collection}
                     </Link>
@@ -229,14 +215,14 @@ function NavbarContent({
         </div>
         <Link
           href="/photo/contact"
-          className={pathname === "/photo/contact" ? "underline" : ""}
+          className={pathname === "/photo/contact" ? "font-bold" : ""}
           onClick={closeBurger}
         >
           contact
         </Link>
         <Link
           href="/photo/book"
-          className={pathname === "/photo/book" ? "underline" : ""}
+          className={pathname === "/photo/book" ? "font-bold" : ""}
           onClick={closeBurger}
         >
           book a session
@@ -263,7 +249,9 @@ function NavbarContent({
           <AiFillInstagram className="size-6" />
           @real.alex.photo
         </Link>
-        <p className="text-xs opacity-60 hidden sm:block">Copyright © 2026 by [Alex Hurvitz]</p>
+        <p className="text-xs opacity-60 hidden sm:block">
+          Copyright © 2026 by [Alex Hurvitz]
+        </p>
       </div>
     </div>
   );

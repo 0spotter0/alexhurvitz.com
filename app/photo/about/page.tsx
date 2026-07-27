@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "About" };
 export default function AboutPage() {
   return (
     <>
-      <Navbar title={"ABOUT ME"} />
+      <Navbar />
       <div className="w-full h-full items-center justify-center">
         <div className="flex flex-col items-center gap-8 w-full">
           <img

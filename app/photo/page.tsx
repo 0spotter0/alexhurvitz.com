@@ -5,7 +5,7 @@ import { ImageGallery } from "./image-gallery";
 export default function Home() {
   return (
     <>
-      <Navbar title={"ALEX\nHURVITZ\nPHOTOGRAPHY"} />
+      <Navbar />
       <ImageGallery images={homepageGallery} />
     </>
   );

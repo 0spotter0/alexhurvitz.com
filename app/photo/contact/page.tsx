@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Contact" };
 export default function ContactPage() {
   return (
     <>
-      <Navbar title={"CONTACT"} />
+      <Navbar />
       <div className="md:mr-30 w-full h-full my-auto">
         <div className="gap-8 mx-auto max-w-[60ch]">
           <TallyEmbed />
