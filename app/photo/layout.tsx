@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Navbar } from "@/app/photo/navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -14,6 +15,7 @@ export default function PhotoLayout({
 }>) {
   return (
     <div className="p-6 pt-25 sm:p-10 min-h-screen flex flex-col sm:flex-row">
+      <Navbar />
       {children}
     </div>
   );

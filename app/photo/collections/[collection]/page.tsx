@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/app/photo/navbar";
 
 import { collectionsPageMap, ImageMetadata } from "@/app/photo/data";
 import { ImageGallery } from "@/app/photo/image-gallery";
@@ -31,11 +30,6 @@ export default async function CollectionPage({
     notFound();
   }
 
-  return (
-    <>
-      <Navbar />
-      <ImageGallery images={imageCollection} />
-    </>
-  );
+  return <ImageGallery images={imageCollection} />;
 }
 

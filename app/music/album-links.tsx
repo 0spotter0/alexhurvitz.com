@@ -51,11 +51,7 @@ const platforms: PlatformLink[] = [
   },
 ];
 
-export function AlbumLinks({
-  links,
-}: {
-  links?: AlbumLinks;
-}) {
+export function AlbumLinks({ links }: { links?: AlbumLinks }) {
   const available = platforms.filter((p) => links?.[p.key]);
 
   return (

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/app/music/navbar";
 import { AlbumLinks } from "@/app/music/album-links";
 import { Fragment } from "react";
 
@@ -57,23 +56,20 @@ const albums: Album[] = [
 
 export default function MusicPage() {
   return (
-    <>
-      <Navbar />
-      <main className="px-4 pt-4 sm:pt-0 max-w-4xl mx-auto w-full">
-        <div className="mx-auto flex flex-col w-fit max-w-full">
-          <h1 className="w-full text-center sm:text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
-            Newest Release
-          </h1>
-          <div className="space-y-20">
-            {albums.map((album, index) => (
-              <Fragment key={index}>
-                <AlbumView {...album} />
-              </Fragment>
-            ))}
-          </div>
+    <main className="px-4 pt-4 sm:pt-0 max-w-4xl mx-auto w-full">
+      <div className="mx-auto flex flex-col w-fit max-w-full">
+        <h1 className="w-full text-center sm:text-left text-xs mb-6 font-medium uppercase tracking-wide text-gray-400">
+          Newest Release
+        </h1>
+        <div className="space-y-20">
+          {albums.map((album, index) => (
+            <Fragment key={index}>
+              <AlbumView {...album} />
+            </Fragment>
+          ))}
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
 
