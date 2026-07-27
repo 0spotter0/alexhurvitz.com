@@ -148,7 +148,7 @@ function NavbarContent({
           key={href}
           href={href}
           onClick={closeBurger}
-          className={`transition-colors duration-300 hover:text-gray-800 ${
+          className={`transition-colors duration-300 hover:text-gray-800 font-light ${
             pathname === href ? "text-gray-800" : ""
           }`}
         >
