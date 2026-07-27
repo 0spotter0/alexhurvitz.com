@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Reserve the scrollbar gutter on music pages so navigating between pages of
+   differing heights doesn't shift content horizontally. Scoped via :has() so
+   the photo pages (which share <html>) are unaffected. */
+html:has([data-music-scroll]) {
+  scrollbar-gutter: stable;
+}

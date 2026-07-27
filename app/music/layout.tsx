@@ -15,7 +15,7 @@ export default function MusicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div data-music-scroll className="min-h-screen flex flex-col">
       <Navbar />
       <div className="flex-1 pt-24 sm:pt-32">{children}</div>
       <footer className="px-6 py-8 text-center">
