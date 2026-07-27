@@ -9,7 +9,7 @@ export default function AboutPage() {
       <Navbar />
       <main className="max-w-4xl mx-auto w-full px-6">
         <h1 className="text-4xl font-light tracking-tight text-gray-800 mb-6">
-          Alex Hurvitz
+          About
         </h1>
         <div className="text-gray-600 leading-relaxed flex flex-col md:flex-row justify-between gap-10">
           <div className="md:w-6/10 flex flex-col gap-4">
