@@ -39,10 +39,10 @@ const photos: {
     creditLink: "https://instagram.com/anniedotexe",
   },
   {
-    src: "/music/023.webp",
+    src: "/music/20260726-sgvsymphony-mangalounge-anniewu-17.webp",
     alt: "Alex Hurvitz",
-    creditName: "Kamaron Farver",
-    creditLink: "https://instagram.com/photos.by.farver",
+    creditName: "Annie Wu",
+    creditLink: "https://instagram.com/anniedotexe",
   },
   {
     src: "/music/alexhurvitz2.webp",
@@ -61,6 +61,22 @@ const photos: {
     alt: "Alex Hurvitz",
     creditName: "Kamaron Farver",
     creditLink: "https://instagram.com/photos.by.farver",
+  },
+  {
+    src: "/music/20260726-sgvsymphony-mangalounge-anniewu-18.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Annie Wu",
+    creditLink: "https://instagram.com/anniedotexe",
+  },
+  {
+    src: "/music/20260613-sgvsymphony-kpop-anniewu-4.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Annie Wu",
+    creditLink: "https://instagram.com/anniedotexe",
+  },
+  {
+    src: "/music/Untitled1.webp",
+    alt: "Alex Hurvitz",
   },
 ];
 
