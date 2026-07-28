@@ -18,6 +18,7 @@ const links = [
 
 export function Navbar() {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -29,6 +30,12 @@ export function Navbar() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Close the menu once navigation to the new route has actually rendered,
+  // so the menu overlay stays up until then (no flash of the old page).
+  useEffect(() => {
+    setIsBurgerMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (isBurgerMenuOpen) {
@@ -121,10 +128,7 @@ export function Navbar() {
             transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             className="sm:hidden fixed inset-x-0 top-20 bottom-0 overflow-y-auto bg-white border-t border-gray-100"
           >
-            <NavbarContent
-              className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-8 text-2xl tracking-tight text-gray-400"
-              closeBurger={() => setIsBurgerMenuOpen(false)}
-            />
+            <NavbarContent className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-8 text-2xl tracking-tight text-gray-400" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -132,13 +136,7 @@ export function Navbar() {
   );
 }
 
-function NavbarContent({
-  className,
-  closeBurger,
-}: {
-  className: string;
-  closeBurger?: () => void;
-}) {
+function NavbarContent({ className }: { className: string }) {
   const pathname = usePathname();
 
   return (
@@ -147,7 +145,6 @@ function NavbarContent({
         <Link
           key={href}
           href={href}
-          onClick={closeBurger}
           className={`transition-colors duration-300 hover:text-gray-800 font-light ${
             pathname === href ? "text-gray-800" : ""
           }`}

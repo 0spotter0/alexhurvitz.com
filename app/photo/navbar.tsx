@@ -13,6 +13,7 @@ import { SectionTitle } from "@/app/section-title";
 
 export function Navbar() {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -24,6 +25,11 @@ export function Navbar() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Close the menu on navigation, for every link consistently.
+  useEffect(() => {
+    setIsBurgerMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (isBurgerMenuOpen) {
@@ -111,9 +117,7 @@ export function Navbar() {
                 className="overflow-hidden bg-white"
               >
                 <div className="p-6 sm:p-10">
-                  <NavbarContent
-                    closeBurger={() => setIsBurgerMenuOpen(false)}
-                  />
+                  <NavbarContent />
                 </div>
               </motion.div>
             )}
@@ -124,12 +128,7 @@ export function Navbar() {
   );
 }
 
-function NavbarContent({
-  closeBurger,
-}: {
-  title?: string;
-  closeBurger?: () => void;
-}) {
+function NavbarContent() {
   const pathname = usePathname();
   const isOnCollection = pathname.startsWith("/photo/collections/");
   const [isCollectionsOpen, setIsCollectionsOpen] =
@@ -159,7 +158,6 @@ function NavbarContent({
             <Link
               href="/photo/collections"
               className={pathname === "/photo/collections" ? "font-bold" : ""}
-              onClick={closeBurger}
             >
               collections
             </Link>
@@ -202,7 +200,6 @@ function NavbarContent({
                     <Link
                       key={index}
                       href={`/photo/collections/${collection}`}
-                      onClick={closeBurger}
                       className={`ms-10 ${pathname === `/photo/collections/${collection}` ? "font-bold" : ""}`}
                     >
                       {collection}
@@ -216,14 +213,12 @@ function NavbarContent({
         <Link
           href="/photo/contact"
           className={pathname === "/photo/contact" ? "font-bold" : ""}
-          onClick={closeBurger}
         >
           contact
         </Link>
         <Link
           href="/photo/book"
           className={pathname === "/photo/book" ? "font-bold" : ""}
-          onClick={closeBurger}
         >
           book a session
         </Link>
