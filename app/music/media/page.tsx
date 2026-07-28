@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "Media" };
 
@@ -15,16 +16,52 @@ const videos = [
   "aEOgTle6C1g",
 ];
 
-const photos = [
-  { src: "/music/Untitled2.webp", alt: "Alex Hurvitz" },
-  { src: "/music/APD_20250212_AlexHurvitz01.webp", alt: "Alex Hurvitz" },
-  { src: "/music/Untitled1.webp", alt: "Alex Hurvitz" },
-  { src: "/music/IMG_3042.webp", alt: "Alex Hurvitz" },
-  { src: "/music/023.webp", alt: "Alex Hurvitz" },
-  { src: "/music/alexhurvitz2.webp", alt: "Alex Hurvitz" },
-  { src: "/music/APD_20250212_AlexHurvitz04.webp", alt: "Alex Hurvitz" },
-  { src: "/music/041.webp", alt: "Alex Hurvitz" },
-  { src: "/music/IMG_3045.webp", alt: "Alex Hurvitz" },
+const photos: {
+  src: string;
+  alt: string;
+  creditName?: string;
+  creditLink?: string;
+}[] = [
+  {
+    src: "/music/Untitled2.webp",
+    alt: "Alex Hurvitz",
+  },
+  {
+    src: "/music/APD_20250212_AlexHurvitz01.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Anna Powell Denton",
+    creditLink: "https://instagram.com/annapowelldenton",
+  },
+  {
+    src: "/music/IMG_3042.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Annie Wu",
+    creditLink: "https://instagram.com/anniedotexe",
+  },
+  {
+    src: "/music/023.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Kamaron Farver",
+    creditLink: "https://instagram.com/photos.by.farver",
+  },
+  {
+    src: "/music/alexhurvitz2.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Annie Wu",
+    creditLink: "https://instagram.com/anniedotexe",
+  },
+  {
+    src: "/music/APD_20250212_AlexHurvitz04.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Anna Powell Denton",
+    creditLink: "https://instagram.com/annapowelldenton",
+  },
+  {
+    src: "/music/041.webp",
+    alt: "Alex Hurvitz",
+    creditName: "Kamaron Farver",
+    creditLink: "https://instagram.com/photos.by.farver",
+  },
 ];
 
 export default function MediaPage() {
@@ -56,13 +93,30 @@ export default function MediaPage() {
       </h2>
       <div className="columns-2 md:columns-3 gap-4">
         {photos.map((photo) => (
-          <div key={photo.src} className="break-inside-avoid mb-4">
+          <div
+            key={photo.src}
+            className="break-inside-avoid mb-4 relative group"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`${process.env.NEXT_PUBLIC_BUNNY_URL}${photo.src}`}
               alt={photo.alt}
               className="w-full h-auto"
             />
+            {photo.creditName && photo.creditLink && (
+              <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Link
+                  href={photo.creditLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Instagram"
+                >
+                  <p className="underline text-xs text-white text-right">
+                    {photo.creditName}
+                  </p>
+                </Link>
+              </div>
+            )}
           </div>
         ))}
       </div>

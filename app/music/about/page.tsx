@@ -59,17 +59,31 @@ export default function AboutPage() {
             storytelling.
           </p>
         </div>
-        <div className="w-full md:w-4/10 flex flex-row md:flex-col gap-4 sm:gap-18">
-          <img
-            src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/aboutme-alex.webp`}
-            alt="Album cover"
-            className="min-w-0 flex-1 md:flex-none md:w-full object-cover"
-          />
-          <img
-            src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/023.webp`}
-            alt="Album cover"
-            className="min-w-0 flex-1 md:flex-none md:w-full object-cover"
-          />
+        <div className="w-full md:w-4/10 flex flex-row md:flex-col gap-4 sm:gap-10 text-white">
+          <div className="min-w-0 flex-1 md:flex-none md:w-full relative">
+            <img
+              src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/aboutme-alex.webp`}
+              alt="Picture of Alex"
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/10">
+              <p className="text-xs text-right">
+                Annie Wu @anniedotexe
+              </p>
+            </div>
+          </div>
+          <div className="min-w-0 flex-1 md:flex-none md:w-full relative">
+            <img
+              src={`${process.env.NEXT_PUBLIC_BUNNY_URL}/music/023.webp`}
+              alt="Picture of Alex"
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/10">
+              <p className="text-xs text-right">
+                Kamaron Farver @photos.by.farver
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
