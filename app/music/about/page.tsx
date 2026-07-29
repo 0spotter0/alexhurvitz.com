@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -66,10 +67,17 @@ export default function AboutPage() {
               alt="Picture of Alex"
               className="object-cover"
             />
-            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/10">
-              <p className="text-xs text-right">
-                Annie Wu @anniedotexe
-              </p>
+            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/20">
+              <Link
+                href={"https://instagram.com/anniedotexe"}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+              >
+                <p className="underline text-xs text-white text-right">
+                  Annie Wu
+                </p>
+              </Link>
             </div>
           </div>
           <div className="min-w-0 flex-1 md:flex-none md:w-full relative">
@@ -78,10 +86,17 @@ export default function AboutPage() {
               alt="Picture of Alex"
               className="object-cover"
             />
-            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/10">
-              <p className="text-xs text-right">
-                Kamaron Farver @photos.by.farver
-              </p>
+            <div className="absolute bottom-0 inset-x-0 px-2 py-1 backdrop-blur-sm w-full bg-black/20">
+              <Link
+                href={"https://instagram.com/photos.by.farver"}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+              >
+                <p className="underline text-xs text-white text-right">
+                  Kamaron Farver
+                </p>
+              </Link>
             </div>
           </div>
         </div>
