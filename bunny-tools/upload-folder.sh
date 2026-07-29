@@ -62,11 +62,17 @@ BASE_URL="https://${HOST}/${BUNNY_STORAGE_ZONE}"
 [[ -n "$REMOTE_PREFIX" ]] && BASE_URL="${BASE_URL}/${REMOTE_PREFIX}"
 
 # Collect files (relative paths from LOCAL_DIR).
+# Read into an array via a while-loop instead of `mapfile` so this works on
+# the Bash 3.2 that ships with macOS (mapfile is a Bash 4+ builtin).
+FILES=()
 if $RECURSE; then
-  mapfile -t FILES < <(cd "$LOCAL_DIR" && find . -type f ! -name '.*' | sed 's|^\./||' | sort)
+  find_cmd=(find . -type f ! -name '.*')
 else
-  mapfile -t FILES < <(cd "$LOCAL_DIR" && find . -maxdepth 1 -type f ! -name '.*' | sed 's|^\./||' | sort)
+  find_cmd=(find . -maxdepth 1 -type f ! -name '.*')
 fi
+while IFS= read -r rel; do
+  FILES+=("$rel")
+done < <(cd "$LOCAL_DIR" && "${find_cmd[@]}" | sed 's|^\./||' | sort)
 
 if [[ ${#FILES[@]} -eq 0 ]]; then
   echo "No files found in $LOCAL_DIR"
