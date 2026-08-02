@@ -35,6 +35,26 @@ export function ImageGallery({ images }: { images: ImageMetadata[] }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Push a history entry while the overlay is open so the browser/mobile back
+  // button closes it instead of navigating away from the gallery.
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    window.history.pushState({ overlay: true }, "");
+
+    const handlePopState = () => setSelectedImage(null);
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      // If the overlay was closed by something other than the back button
+      // (ESC, backdrop click), remove the history entry we pushed.
+      if (window.history.state?.overlay) {
+        window.history.back();
+      }
+    };
+  }, [selectedImage]);
+
   useEffect(() => {
     if (selectedImage) {
       const scrollbarWidth =
