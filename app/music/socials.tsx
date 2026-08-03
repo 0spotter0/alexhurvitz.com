@@ -1,58 +1,5 @@
 import Link from "next/link";
-import type { ComponentType } from "react";
-import {
-  SiApplemusic,
-  SiBandcamp,
-  SiSoundcloud,
-  SiSpotify,
-} from "react-icons/si";
-import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
-
-type PlatformLink = {
-  label: string;
-  href: string;
-  Icon: ComponentType<{ className?: string }>;
-  className?: string;
-};
-
-const socials: PlatformLink[] = [
-  {
-    label: "Spotify",
-    href: "https://open.spotify.com/artist/6o2ttwvZOf3XaGIGmSynVN",
-    Icon: SiSpotify,
-    className: "hover:text-[#1DB954]",
-  },
-  {
-    label: "Apple Music",
-    href: "https://music.apple.com/us/artist/alex-hurvitz/6777116476",
-    Icon: SiApplemusic,
-    className: "hover:text-[#FF4E6B]",
-  },
-  {
-    label: "Soundcloud",
-    href: "https://soundcloud.com/alexhurvitz",
-    Icon: SiSoundcloud,
-    className: "hover:text-[#FF5402]",
-  },
-  {
-    label: "Bandcamp",
-    href: "https://alexhurvitz.bandcamp.com/",
-    Icon: SiBandcamp,
-    className: "hover:text-[#0AADD7]",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/alex_hurvitz/",
-    Icon: AiFillInstagram,
-    className: "hover:text-[#FF0080]",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@alexhurvitz752",
-    Icon: AiFillYoutube,
-    className: "hover:text-[#FF0000]",
-  },
-];
+import { socials, type PlatformLink } from "@/app/socialsData";
 
 function PlatformIcon({ label, href, Icon, className }: PlatformLink) {
   return (

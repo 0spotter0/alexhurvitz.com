@@ -1,91 +1,21 @@
 import type { Metadata } from "next";
-import type { ComponentType } from "react";
 import Link from "next/link";
-import {
-  SiApplemusic,
-  SiBandcamp,
-  SiSoundcloud,
-  SiSpotify,
-  SiUnsplash,
-} from "react-icons/si";
-import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { HiCamera, HiMusicalNote } from "react-icons/hi2";
+import {
+  cardSocials as socials,
+  type CardSocialLink,
+} from "@/app/socialsData";
 
 export const metadata: Metadata = {
   title: "Alex Hurvitz",
   description: "All my links in one place.",
 };
 
-type CardLink = {
-  label: string;
-  href: string;
-  Icon: ComponentType<{ className?: string }>;
-  external?: boolean;
-  className?: string;
-};
+type CardLink = CardSocialLink;
 
 const portfolios: CardLink[] = [
   { label: "Photography", href: "/photo", Icon: HiCamera },
   { label: "Music", href: "/music", Icon: HiMusicalNote },
-];
-
-const socials: CardLink[] = [
-  {
-    label: "Spotify",
-    href: "https://open.spotify.com/artist/6o2ttwvZOf3XaGIGmSynVN",
-    Icon: SiSpotify,
-    external: true,
-    className: "group-hover:text-[#1DB954]",
-  },
-  {
-    label: "Apple Music",
-    href: "https://music.apple.com/us/artist/alex-hurvitz/6777116476",
-    Icon: SiApplemusic,
-    external: true,
-    className: "group-hover:text-[#FF4E6B]",
-  },
-  {
-    label: "Soundcloud",
-    href: "https://soundcloud.com/alexhurvitz",
-    Icon: SiSoundcloud,
-    external: true,
-    className: "group-hover:text-[#FF5402]",
-  },
-  {
-    label: "Bandcamp",
-    href: "https://alexhurvitz.bandcamp.com/",
-    Icon: SiBandcamp,
-    external: true,
-    className: "group-hover:text-[#0AADD7]",
-  },
-  {
-    label: "Instagram (@alex_hurvitz)",
-    href: "https://www.instagram.com/alex_hurvitz/",
-    Icon: AiFillInstagram,
-    external: true,
-    className: "group-hover:text-[#FF0080]",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@alexhurvitz752",
-    Icon: AiFillYoutube,
-    external: true,
-    className: "group-hover:text-[#FF0000]",
-  },
-  {
-    label: "Unsplash",
-    href: "https://unsplash.com/@alex_hurvitz/collections",
-    Icon: SiUnsplash,
-    external: true,
-    className: "group-hover:text-[#000000]",
-  },
-  {
-    label: "Instagram (@real.alex.photo)",
-    href: "https://www.instagram.com/real.alex.photo/",
-    Icon: AiFillInstagram,
-    external: true,
-    className: "group-hover:text-[#FF0080]",
-  },
 ];
 
 function CardButton({ label, href, Icon, external, className }: CardLink) {

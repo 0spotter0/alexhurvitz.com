@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { collectionsPageMap } from "@/app/photo/data";
+import { socialUrls } from "@/app/socialsData";
 import { SectionTitle } from "@/app/section-title";
 
 export function Navbar() {
@@ -225,7 +226,7 @@ function NavbarContent() {
       </div>
       <div className="fixed bottom-6 sm:static flex flex-col gap-4">
         <Link
-          href="https://unsplash.com/@alex_hurvitz/collections"
+          href={socialUrls.unsplash}
           target="_blank"
           rel="noopener noreferrer"
           title="Unsplash"
@@ -235,7 +236,7 @@ function NavbarContent() {
           @alex_hurvitz
         </Link>
         <Link
-          href="https://www.instagram.com/real.alex.photo/"
+          href={socialUrls.instagramPhoto}
           target="_blank"
           rel="noopener noreferrer"
           title="Instagram"
