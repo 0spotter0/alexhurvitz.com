@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ImageMetadata } from "./data";
+import { ImageMetadata } from "./photoData";
 
 export function Image({
   image,

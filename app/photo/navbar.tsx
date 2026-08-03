@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { collectionsPageMap } from "@/app/photo/data";
+import { collectionsPageMap } from "@/app/photo/photoData";
 import { socialUrls } from "@/app/socialsData";
 import { SectionTitle } from "@/app/section-title";
 

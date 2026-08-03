@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { ImageMetadata } from "./data";
+import { ImageMetadata } from "./photoData";
 import { Image } from "./image";
 import { ImageOverlay } from "./image-overlay";
 

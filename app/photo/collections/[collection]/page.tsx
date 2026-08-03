@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { collectionsPageMap, ImageMetadata } from "@/app/photo/data";
+import { collectionsPageMap, ImageMetadata } from "@/app/photo/photoData";
 import { ImageGallery } from "@/app/photo/image-gallery";
 import { notFound } from "next/navigation";
 

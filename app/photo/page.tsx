@@ -1,4 +1,4 @@
-import { homepageGallery } from "./data";
+import { homepageGallery } from "./photoData";
 import { ImageGallery } from "./image-gallery";
 
 export default function Home() {

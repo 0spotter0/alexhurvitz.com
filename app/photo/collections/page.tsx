@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { collectionsPageMap } from "@/app/photo/data";
+import { collectionsPageMap } from "@/app/photo/photoData";
 
 export const metadata: Metadata = { title: "Collections" };
 

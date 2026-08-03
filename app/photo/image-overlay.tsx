@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TbBrightnessUp } from "react-icons/tb";
 import { MdOutlineTimer } from "react-icons/md";
 import { IoMdAperture } from "react-icons/io";
-import { ImageMetadata } from "./data";
+import { ImageMetadata } from "./photoData";
 
 export function ImageOverlay({
   image,
